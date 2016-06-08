@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Cache-control" content="no-cache">
+<link rel="stylesheet" href="style.css" />
+<style type="text/css">
+
+	.text{	color: #aaa;font: 20px arial, sans-serif; border:none;}
+</style>
+<!-- <script src="src/vendor/Muse/include.js" main="src/app.js"></script> -->
+</head>
+
+<body class="main" oncontextmenu="return false;">
+<div style="width: 100%;">
+<table id="mainTable">
+	<tr>
+		<td >
+		<table >
+			<tr class="playback" style="display: none">
+				<td>
+					<img src="assets/pngs/title.png">
+				</td>
+				<td >
+					<img id="fyv" src="assets/pngs/button1.png" onmousedown="fyvClickDown()" onmouseup="fyvClickUp()">
+				</td>
+				<td >
+					<img id="jy" class="sideBySide" src="assets/pngs/button2.png" onmousedown="jyClickDown()" onmouseup="jyClickUp()" style="display: none">
+				</td>
+				<td >
+					<img id="sbs" class="justYou" src="assets/pngs/button3.png" onmousedown="sbsClickDown()" onmouseup="sbsClickUp()" >
+				</td>
+			</tr>
+			<tr  class="select" style="display: table-row">
+				<td>
+					<img src="assets/pngs/title.png">
+				</td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+	<tr id="captures" class="playback" style="display: none;" >
+		<td >
+			<table >
+				<tr style="width: 100%;">
+					<td id="visitor-caps" style="display: table-cell;">
+					</td>
+					<td class="sideBySide" style="display: none; width: 153px;">
+						<img id="playBoth" src="assets/pngs/playBoth-active.png" onmousedown="pbClickDown()"></img>
+					</td>
+					<td id="celeb-caps" class="sideBySide" style="display: none;">
+					</td>
+					<td class="justYou">
+						<img src="assets/pngs/justYouInstruct.png"></img>
+					</td>
+					<td id="celebThumbs" class="sideBySide" style="display:none;">
+						<div id='celebContainer'></div>
+					</td>
+					<td class="sideBySide" style="display:none;">
+						<div id="celebThumbSlider"></div>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr class="select" style="display: table-row">
+		<td id="thumbs">
+		</td>
+	</tr>
+</table>
+
+</div>
+
+<script type="text/javascript" src="utils.js" ></script>
+<script type="text/javascript" src="mouseFxn.js" ></script>
+<script type="text/javascript" src="book.js" ></script>
+<script type="text/javascript" src="posSlider.js" ></script>
+<script type="text/javascript" src="flipPlayer.js" ></script>
+<script type="text/javascript" src="thumbSelect.js" ></script>
+<script type="text/javascript" src="webSockets.js" ></script>
+<script type="text/javascript" src="thumbSlider.js" ></script>
+
+
+</body>
+</html>

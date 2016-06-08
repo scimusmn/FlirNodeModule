@@ -1,0 +1,32 @@
+{
+  "name": "electron-quick-start",
+  "version": "1.0.0",
+  "description": "A minimal Electron application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scimusmn/Vieworks-Node-Module.git"
+  },
+  "keywords": [
+    "Vieworks",
+    "high",
+    "speed",
+    "camera"
+  ],
+  "author": "SMM",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron-prebuilt": "0.36.1",
+    "electron-rebuild": "^1.1.4"
+  },
+  "gypfile": true,
+  "dependencies": {
+    "bindings": "~1.2.1",
+    "nan": "^2.0.0",
+    "serialport": "^3.1.2",
+    "ws": "^1.1.0"
+  }
+}

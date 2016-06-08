@@ -1,0 +1,1685 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files (x86)\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\Program Files (x86)\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'win32ole' ]
+2 info using npm@2.7.4
+3 info using node@v0.12.2
+4 verbose node symlink C:\Program Files (x86)\nodejs\\node.exe
+5 warn package.json electron-quick-start@1.0.0 No README data
+6 silly cache add args [ 'win32ole', null ]
+7 verbose cache add spec win32ole
+8 silly cache add parsed spec { raw: 'win32ole',
+8 silly cache add   scope: null,
+8 silly cache add   name: 'win32ole',
+8 silly cache add   rawSpec: '',
+8 silly cache add   spec: '*',
+8 silly cache add   type: 'range' }
+9 verbose addNamed win32ole@*
+10 silly addNamed semver.valid null
+11 silly addNamed semver.validRange *
+12 silly addNameRange { name: 'win32ole', range: '*', hasData: false }
+13 silly mapToRegistry name win32ole
+14 silly mapToRegistry using default registry
+15 silly mapToRegistry registry https://registry.npmjs.org/
+16 silly mapToRegistry uri https://registry.npmjs.org/win32ole
+17 verbose addNameRange registry:https://registry.npmjs.org/win32ole not in flight; fetching
+18 verbose request uri https://registry.npmjs.org/win32ole
+19 verbose request no auth needed
+20 info attempt registry request try #1 at 6:05:59 AM
+21 verbose request id 88c0708fb50f3d30
+22 verbose etag "2KYBOBQCNS12BHBBM09ZOZCOY"
+23 http request GET https://registry.npmjs.org/win32ole
+24 http 304 https://registry.npmjs.org/win32ole
+25 silly get cb [ 304,
+25 silly get   { date: 'Wed, 08 Jun 2016 13:05:49 GMT',
+25 silly get     via: '1.1 varnish',
+25 silly get     'cache-control': 'max-age=300',
+25 silly get     etag: '"2KYBOBQCNS12BHBBM09ZOZCOY"',
+25 silly get     age: '267',
+25 silly get     connection: 'keep-alive',
+25 silly get     'x-served-by': 'cache-dfw1833-DFW',
+25 silly get     'x-cache': 'HIT',
+25 silly get     'x-cache-hits': '1',
+25 silly get     'x-timer': 'S1465391149.479180,VS0,VE0',
+25 silly get     vary: 'Accept-Encoding' } ]
+26 verbose etag https://registry.npmjs.org/win32ole from cache
+27 verbose get saving win32ole to C:\Users\exhibits\AppData\Roaming\npm-cache\registry.npmjs.org\win32ole\.cache.json
+28 silly addNameRange number 2 { name: 'win32ole', range: '*', hasData: true }
+29 silly addNameRange versions [ 'win32ole', [ '0.0.28', '0.1.3' ] ]
+30 verbose addNamed win32ole@0.1.3
+31 silly addNamed semver.valid 0.1.3
+32 silly addNamed semver.validRange 0.1.3
+33 silly cache afterAdd win32ole@0.1.3
+34 verbose afterAdd C:\Users\exhibits\AppData\Roaming\npm-cache\win32ole\0.1.3\package\package.json not in flight; writing
+35 verbose afterAdd C:\Users\exhibits\AppData\Roaming\npm-cache\win32ole\0.1.3\package\package.json written
+36 silly install resolved [ { name: 'win32ole',
+36 silly install resolved     version: '0.1.3',
+36 silly install resolved     description: 'Asynchronous, non-blocking win32ole bindings',
+36 silly install resolved     homepage: 'https://github.com/idobatter/node-win32ole',
+36 silly install resolved     keywords:
+36 silly install resolved      [ 'OLE',
+36 silly install resolved        'COM',
+36 silly install resolved        'ActiveX',
+36 silly install resolved        'ActiveXObject',
+36 silly install resolved        'CreateObject',
+36 silly install resolved        'WSH',
+36 silly install resolved        'WMI',
+36 silly install resolved        'Outlook',
+36 silly install resolved        'Access',
+36 silly install resolved        'Word',
+36 silly install resolved        'Excel',
+36 silly install resolved        'IE',
+36 silly install resolved        'InternetExplorer' ],
+36 silly install resolved     author:
+36 silly install resolved      { name: 'idobatter',
+36 silly install resolved        email: 'idobatter@gmail.com',
+36 silly install resolved        url: 'https://github.com/idobatter' },
+36 silly install resolved     contributors: [ [Object] ],
+36 silly install resolved     repository:
+36 silly install resolved      { type: 'git',
+36 silly install resolved        url: 'git://github.com/idobatter/node-win32ole.git' },
+36 silly install resolved     dependencies:
+36 silly install resolved      { assert: '>= 0.4.9',
+36 silly install resolved        async: '>= 0.1.22',
+36 silly install resolved        'ref-struct': '>= 0.0.5',
+36 silly install resolved        ref: '>= 0.1.3' },
+36 silly install resolved     devDependencies:
+36 silly install resolved      { mocha: '>= 1.8.1',
+36 silly install resolved        assert: '>= 0.4.9',
+36 silly install resolved        async: '>= 0.1.22',
+36 silly install resolved        'ref-struct': '>= 0.0.5',
+36 silly install resolved        ref: '>= 0.1.3' },
+36 silly install resolved     engines: { node: '>= 0.8.18 && < 0.9.0' },
+36 silly install resolved     scripts: { test: 'nmake /a test', install: 'node-gyp rebuild' },
+36 silly install resolved     licenses: [ [Object] ],
+36 silly install resolved     main: './lib/win32ole',
+36 silly install resolved     gypfile: true,
+36 silly install resolved     readme: '# NAME\n\nnode-win32ole - Asynchronous, non-blocking win32ole bindings for [node.js](https://github.com/joyent/node) powered by v8 engine .\n\nwin32ole makes accessibility from node.js to Excel, Word, Access, Outlook, InternetExplorer, WSH ( ActiveXObject / COM ) and so on. It does not need TypeLibrary.\n\n\n# USAGE\n\nInstall with `npm install win32ole`.\n\nIt works as... (version 0.1.x)\n\n``` js\ntry{\n  var win32ole = require(\'win32ole\');\n  // var xl = new ActiveXObject(\'Excel.Application\'); // You may write it as:\n  var xl = win32ole.client.Dispatch(\'Excel.Application\');\n  xl.Visible = true;\n  var book = xl.Workbooks.Add();\n  var sheet = book.Worksheets(1);\n  try{\n    sheet.Name = \'sheetnameA utf8\';\n    sheet.Cells(1, 2).Value = \'test utf8\';\n    var rg = sheet.Range(sheet.Cells(2, 2), sheet.Cells(4, 4));\n    rg.RowHeight = 5.18;\n    rg.ColumnWidth = 0.58;\n    rg.Interior.ColorIndex = 6; // Yellow\n    var result = book.SaveAs(\'testfileutf8.xls\');\n    console.log(result);\n  }catch(e){\n    console.log(\'(exception cached)\\n\' + e);\n  }\n  xl.ScreenUpdating = true;\n  xl.Workbooks.Close();\n  xl.Quit();\n}catch(e){\n  console.log(\'*** exception cached ***\\n\' + e);\n}\n```\n\nThere are 3 ways to make force Garbage Collection for node.js / v8 .\n\n- 1. use huge memory to run GC automatically ( causes abnormal termination )\n- 2. win32ole.force_gc_extension(1);\n- 3. win32ole.force_gc_internal(1);\n\nsee also [examples/ole_args_test_client.js](https://github.com/idobatter/node-win32ole/blob/master/examples/ole_args_test_client.js)\n\n\n# Tutorial and Examples\n\n- [test/init_win32ole.test.js](https://github.com/idobatter/node-win32ole/blob/master/test/init_win32ole.test.js)\n- [test/unicode.test.js](https://github.com/idobatter/node-win32ole/blob/master/test/unicode.test.js)\n- [examples/maze_creator.js](https://github.com/idobatter/node-win32ole/blob/master/examples/maze_creator.js)\n- [examples/maze_solver.js](https://github.com/idobatter/node-win32ole/blob/master/examples/maze_solver.js)\n- [examples/word_sample.js](https://github.com/idobatter/node-win32ole/blob/master/examples/word_sample.js)\n- [examples/access_mdb_sample.js](https://github.com/idobatter/node-win32ole/blob/master/examples/access_mdb_sample.js)\n- [examples/outlook_sample.js](https://github.com/idobatter/node-win32ole/blob/master/examples/outlook_sample.js)\n- [examples/ie_sample.js](https://github.com/idobatter/node-win32ole/blob/master/examples/ie_sample.js)\n- [examples/typelibrary_sample.js](https://github.com/idobatter/node-win32ole/blob/master/examples/typelibrary_sample.js)\n- [examples/uncfinder_sample.js](https://github.com/idobatter/node-win32ole/blob/master/examples/uncfinder_sample.js)\n- [examples/activex_filesystemobject_sample.js](https://github.com/idobatter/node-win32ole/blob/master/examples/activex_filesystemobject_sample.js)\n- [examples/wmi_sample.js](https://github.com/idobatter/node-win32ole/blob/master/examples/wmi_sample.js)\n- [examples/wsh_sample.js](https://github.com/idobatter/node-win32ole/blob/master/examples/wsh_sample.js)\n- [examples/ole_args_test_client.js](https://github.com/idobatter/node-win32ole/blob/master/examples/ole_args_test_client.js)\n- [examples/ole_args_test_client_metamorphoses.js](https://github.com/idobatter/node-win32ole/blob/master/examples/ole_args_test_client_metamorphoses.js)\n\n\n# Other built in functions\n\n* win32ole.version(void) // returns version string\n* win32ole.printACP(utf8string) // Utf8 to .ACP\n* win32ole.print(utf8string) // ASCII\n* win32ole.gettimeofday(struct timeval &tv, null) // now arg2 is not used\n* win32ole.sleep(long milliseconds, bool withmessage=false, bool with\\n=false)\n* win32ole.force_gc_extension(long flag) // now flag is dummy\n* win32ole.force_gc_internal(long flag, string) // now flag is dummy\n\n\n# FEATURES\n\n* fix BUG: date\n* BUG: A few samples in win32ole@0.1.0 needs \'._\' ideom.\n* When you use unary operator \'!\' at the place that needs boolean CONDITION (for example \'while(!obj.status){...}\') , you must write \'while(!obj.status._){...}\' to complete v8::Object::ToBoolean() conversion. (NamedPropertyHandler will not be called because v8::Object::ToBoolean() is called directly for unary operator \'!\' instead of v8::Object::valueOf() in ParseUnaryExpression() v8/src/parser.cc .) Do you know how to fake it?\n* V8Variant::OLEGetAttr returns a copy of object, so it uses much memory. I want to fix it.\n* Now \'._\' ideom is obsoleted.\n* Remove \'node-proxy\' from dependencies list.\n* Change default branch to dev0.1.0 .\n* BUG: Some samples in between win32ole@0.0.25 and win32ole@0.0.28 ( examples/maze_creator.js examples/maze_solver.js ) uses huge memory and many disposers will run by v8 GC when maze size is 20*30. I think that each encapsulated V8Variant (by node-proxy) may be big object. So I will try to use v8 accessor handlers ( SetCallAsFunctionHandler / SetNamedPropertyHandler / SetIndexedPropertyHandler ) instead of ( \'__noSuchMethod__\' / \'__noSuchGetter__\' / \'__noSuchSetter__\' ) by node-proxy.\n* So much implements. (can not handle some COM VARIANT types, array etc.)\n* Bug fix. (throws exception when failed to Invoke(), and many test message.)\n* Implement accessors getter, setter and caller. (version 0.1.x) (Some V8Variants were advanced to 0.1.x .)\n\n\n# API\n\nSee the [API documentation](https://github.com/idobatter/node-win32ole/wiki) in the wiki.\n\n\n# BUILDING\n\nThis project uses VC++ 2008 Express (or later) and Python 2.6 (or later) .\n(When using Python 2.5, it needs [multiprocessing 2.5 back port](http://pypi.python.org/pypi/multiprocessing/) .) It needs neither ATL nor MFC.\n\nBulding also requires node-gyp to be installed. You can do this with npm:\n\n    npm install -g node-gyp\n\nTo obtain and build the bindings:\n\n    git clone git://github.com/idobatter/node-win32ole.git\n    cd node-win32ole\n    node-gyp configure\n    node-gyp build\n\nYou can also use [`npm`](https://github.com/isaacs/npm) to download and install them:\n\n    npm install win32ole\n\n\n# TESTS\n\n[mocha](https://github.com/visionmedia/mocha) is required to run unit tests.\n\n    npm install -g mocha\n    nmake /a test\n\n\n# CONTRIBUTORS\n\n* [idobatter](https://github.com/idobatter)\n\n\n# ACKNOWLEDGEMENTS\n\nInspired [Win32OLE](http://www.ruby-doc.org/stdlib/libdoc/win32ole/rdoc/)\n\n\n# LICENSE\n\n`node-win32ole` is [BSD licensed](https://github.com/idobatter/node-win32ole/raw/master/LICENSE).\n',
+36 silly install resolved     readmeFilename: 'README.md',
+36 silly install resolved     _id: 'win32ole@0.1.3',
+36 silly install resolved     dist:
+36 silly install resolved      { shasum: 'ecb4858f387618b8c285f369a836c5e32b003acf',
+36 silly install resolved        tarball: 'https://registry.npmjs.org/win32ole/-/win32ole-0.1.3.tgz' },
+36 silly install resolved     _from: 'win32ole@*',
+36 silly install resolved     _npmVersion: '1.2.2',
+36 silly install resolved     _npmUser: { name: 'idobatter', email: 'idobatter@gmail.com' },
+36 silly install resolved     maintainers: [ [Object] ],
+36 silly install resolved     directories: {},
+36 silly install resolved     _shasum: 'ecb4858f387618b8c285f369a836c5e32b003acf',
+36 silly install resolved     _resolved: 'https://registry.npmjs.org/win32ole/-/win32ole-0.1.3.tgz',
+36 silly install resolved     bugs: { url: 'https://github.com/idobatter/node-win32ole/issues' } } ]
+37 info install win32ole@0.1.3 into C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule
+38 info installOne win32ole@0.1.3
+39 verbose installOne of win32ole to C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule not in flight; installing
+40 verbose lock using C:\Users\exhibits\AppData\Roaming\npm-cache\_locks\win32ole-1f589d57962f137d.lock for C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole
+41 warn engine win32ole@0.1.3: wanted: {"node":">= 0.8.18 && < 0.9.0"} (current: {"node":"0.12.2","npm":"2.7.4"})
+42 silly install write writing win32ole 0.1.3 to C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole
+43 silly cache addNamed cb win32ole@0.1.3
+44 verbose unbuild node_modules\win32ole
+45 silly gentlyRm C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole is being purged from base C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule
+46 verbose gentlyRm don't care about contents; nuking C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole
+47 verbose tar unpack C:\Users\exhibits\AppData\Roaming\npm-cache\win32ole\0.1.3\package.tgz
+48 verbose tar unpacking to C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole
+49 silly gentlyRm C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole is being purged
+50 verbose gentlyRm don't care about contents; nuking C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole
+51 silly gunzTarPerm modes [ '777', '666' ]
+52 silly gunzTarPerm extractEntry package.json
+53 silly gunzTarPerm extractEntry .npmignore
+54 silly gunzTarPerm extractEntry README.md
+55 silly gunzTarPerm extractEntry win32ole.js
+56 silly gunzTarPerm extractEntry binding.gyp
+57 silly gunzTarPerm extractEntry examples/access_mdb_sample.js
+58 silly gunzTarPerm extractEntry examples/maze_creator.js
+59 silly gunzTarPerm extractEntry examples/maze_solver.js
+60 silly gunzTarPerm extractEntry examples/word_sample.js
+61 silly gunzTarPerm extractEntry examples/ie_sample.js
+62 silly gunzTarPerm extractEntry examples/activex_filesystemobject_sample.js
+63 silly gunzTarPerm extractEntry examples/ole_args_test_client_metamorphoses.js
+64 silly gunzTarPerm extractEntry examples/outlook_sample.js
+65 silly gunzTarPerm extractEntry examples/typelibrary_sample.js
+66 silly gunzTarPerm extractEntry examples/uncfinder_sample.js
+67 silly gunzTarPerm extractEntry examples/wmi_sample.js
+68 silly gunzTarPerm extractEntry examples/wsh_sample.js
+69 silly gunzTarPerm extractEntry examples/ole_args_test_client.js
+70 silly gunzTarPerm extractEntry examples/ole_args_tester_server.py
+71 silly gunzTarPerm extractEntry examples/ole_args_tester_client.py
+72 silly gunzTarPerm extractEntry lib/index.js
+73 silly gunzTarPerm extractEntry lib/trace.js
+74 silly gunzTarPerm extractEntry lib/win32ole.js
+75 silly gunzTarPerm extractEntry Makefile
+76 silly gunzTarPerm extractEntry src/node_win32ole.h
+77 silly gunzTarPerm extractEntry src/client.cc
+78 silly gunzTarPerm extractEntry src/force_gc_extension.cc
+79 silly gunzTarPerm extractEntry src/force_gc_internal.cc
+80 silly gunzTarPerm extractEntry src/node_win32ole.cc
+81 silly gunzTarPerm extractEntry src/client.h
+82 silly gunzTarPerm extractEntry src/ole32core.cpp
+83 silly gunzTarPerm extractEntry src/ole32core.h
+84 silly gunzTarPerm extractEntry src/v8variant.cc
+85 silly gunzTarPerm extractEntry src/v8variant.h
+86 silly gunzTarPerm extractEntry src/win32ole_gettimeofday.cc
+87 silly gunzTarPerm extractEntry test/init_win32ole.test.js
+88 silly gunzTarPerm extractEntry test/unicode.test.js
+89 info preinstall win32ole@0.1.3
+90 silly prepareForInstallMany adding assert@>= 0.4.9 from win32ole dependencies
+91 silly prepareForInstallMany adding async@>= 0.1.22 from win32ole dependencies
+92 silly prepareForInstallMany adding ref-struct@>= 0.0.5 from win32ole dependencies
+93 silly prepareForInstallMany adding ref@>= 0.1.3 from win32ole dependencies
+94 silly cache add args [ 'async@>= 0.1.22', null ]
+95 verbose cache add spec async@>= 0.1.22
+96 silly cache add parsed spec { raw: 'async@>= 0.1.22',
+96 silly cache add   scope: null,
+96 silly cache add   name: 'async',
+96 silly cache add   rawSpec: '>= 0.1.22',
+96 silly cache add   spec: '>=0.1.22',
+96 silly cache add   type: 'range' }
+97 verbose addNamed async@>=0.1.22
+98 silly addNamed semver.valid null
+99 silly addNamed semver.validRange >=0.1.22
+100 silly addNameRange { name: 'async', range: '>=0.1.22', hasData: false }
+101 silly mapToRegistry name async
+102 silly mapToRegistry using default registry
+103 silly mapToRegistry registry https://registry.npmjs.org/
+104 silly mapToRegistry uri https://registry.npmjs.org/async
+105 verbose addNameRange registry:https://registry.npmjs.org/async not in flight; fetching
+106 silly cache add args [ 'ref-struct@>= 0.0.5', null ]
+107 verbose cache add spec ref-struct@>= 0.0.5
+108 silly cache add parsed spec { raw: 'ref-struct@>= 0.0.5',
+108 silly cache add   scope: null,
+108 silly cache add   name: 'ref-struct',
+108 silly cache add   rawSpec: '>= 0.0.5',
+108 silly cache add   spec: '>=0.0.5',
+108 silly cache add   type: 'range' }
+109 verbose addNamed ref-struct@>=0.0.5
+110 silly addNamed semver.valid null
+111 silly addNamed semver.validRange >=0.0.5
+112 silly addNameRange { name: 'ref-struct', range: '>=0.0.5', hasData: false }
+113 silly mapToRegistry name ref-struct
+114 silly mapToRegistry using default registry
+115 silly mapToRegistry registry https://registry.npmjs.org/
+116 silly mapToRegistry uri https://registry.npmjs.org/ref-struct
+117 verbose addNameRange registry:https://registry.npmjs.org/ref-struct not in flight; fetching
+118 silly cache add args [ 'ref@>= 0.1.3', null ]
+119 verbose cache add spec ref@>= 0.1.3
+120 silly cache add parsed spec { raw: 'ref@>= 0.1.3',
+120 silly cache add   scope: null,
+120 silly cache add   name: 'ref',
+120 silly cache add   rawSpec: '>= 0.1.3',
+120 silly cache add   spec: '>=0.1.3',
+120 silly cache add   type: 'range' }
+121 verbose addNamed ref@>=0.1.3
+122 silly addNamed semver.valid null
+123 silly addNamed semver.validRange >=0.1.3
+124 silly addNameRange { name: 'ref', range: '>=0.1.3', hasData: false }
+125 silly mapToRegistry name ref
+126 silly mapToRegistry using default registry
+127 silly mapToRegistry registry https://registry.npmjs.org/
+128 silly mapToRegistry uri https://registry.npmjs.org/ref
+129 verbose addNameRange registry:https://registry.npmjs.org/ref not in flight; fetching
+130 silly cache add args [ 'assert@>= 0.4.9', null ]
+131 verbose cache add spec assert@>= 0.4.9
+132 silly cache add parsed spec { raw: 'assert@>= 0.4.9',
+132 silly cache add   scope: null,
+132 silly cache add   name: 'assert',
+132 silly cache add   rawSpec: '>= 0.4.9',
+132 silly cache add   spec: '>=0.4.9',
+132 silly cache add   type: 'range' }
+133 verbose addNamed assert@>=0.4.9
+134 silly addNamed semver.valid null
+135 silly addNamed semver.validRange >=0.4.9
+136 silly addNameRange { name: 'assert', range: '>=0.4.9', hasData: false }
+137 silly mapToRegistry name assert
+138 silly mapToRegistry using default registry
+139 silly mapToRegistry registry https://registry.npmjs.org/
+140 silly mapToRegistry uri https://registry.npmjs.org/assert
+141 verbose addNameRange registry:https://registry.npmjs.org/assert not in flight; fetching
+142 verbose request uri https://registry.npmjs.org/ref-struct
+143 verbose request no auth needed
+144 info attempt registry request try #1 at 6:06:00 AM
+145 verbose etag "527ZZ367YZN3UJUOEH1WQBXZ0"
+146 http request GET https://registry.npmjs.org/ref-struct
+147 verbose request uri https://registry.npmjs.org/ref
+148 verbose request no auth needed
+149 info attempt registry request try #1 at 6:06:00 AM
+150 verbose etag "2U5YWC5QYD6MZRKVTOQU9S2OX"
+151 http request GET https://registry.npmjs.org/ref
+152 verbose request uri https://registry.npmjs.org/assert
+153 verbose request no auth needed
+154 info attempt registry request try #1 at 6:06:00 AM
+155 verbose etag "6REE3NCGQ8GVJCDZ27JZXZWTF"
+156 http request GET https://registry.npmjs.org/assert
+157 verbose request uri https://registry.npmjs.org/async
+158 verbose request no auth needed
+159 info attempt registry request try #1 at 6:06:00 AM
+160 verbose etag "81ARFU6SKZ9ELBT19GPEFHIK7"
+161 http request GET https://registry.npmjs.org/async
+162 http 304 https://registry.npmjs.org/ref
+163 silly get cb [ 304,
+163 silly get   { date: 'Wed, 08 Jun 2016 13:05:49 GMT',
+163 silly get     via: '1.1 varnish',
+163 silly get     'cache-control': 'max-age=300',
+163 silly get     etag: '"2U5YWC5QYD6MZRKVTOQU9S2OX"',
+163 silly get     age: '267',
+163 silly get     connection: 'keep-alive',
+163 silly get     'x-served-by': 'cache-dfw1839-DFW',
+163 silly get     'x-cache': 'HIT',
+163 silly get     'x-cache-hits': '1',
+163 silly get     'x-timer': 'S1465391149.906144,VS0,VE0',
+163 silly get     vary: 'Accept-Encoding' } ]
+164 verbose etag https://registry.npmjs.org/ref from cache
+165 verbose get saving ref to C:\Users\exhibits\AppData\Roaming\npm-cache\registry.npmjs.org\ref\.cache.json
+166 http 304 https://registry.npmjs.org/ref-struct
+167 silly get cb [ 304,
+167 silly get   { date: 'Wed, 08 Jun 2016 13:05:49 GMT',
+167 silly get     via: '1.1 varnish',
+167 silly get     'cache-control': 'max-age=300',
+167 silly get     etag: '"527ZZ367YZN3UJUOEH1WQBXZ0"',
+167 silly get     age: '267',
+167 silly get     connection: 'keep-alive',
+167 silly get     'x-served-by': 'cache-dfw1843-DFW',
+167 silly get     'x-cache': 'HIT',
+167 silly get     'x-cache-hits': '1',
+167 silly get     'x-timer': 'S1465391149.911119,VS0,VE0',
+167 silly get     vary: 'Accept-Encoding' } ]
+168 verbose etag https://registry.npmjs.org/ref-struct from cache
+169 verbose get saving ref-struct to C:\Users\exhibits\AppData\Roaming\npm-cache\registry.npmjs.org\ref-struct\.cache.json
+170 http 304 https://registry.npmjs.org/assert
+171 silly get cb [ 304,
+171 silly get   { date: 'Wed, 08 Jun 2016 13:05:49 GMT',
+171 silly get     via: '1.1 varnish',
+171 silly get     'cache-control': 'max-age=300',
+171 silly get     etag: '"6REE3NCGQ8GVJCDZ27JZXZWTF"',
+171 silly get     age: '61',
+171 silly get     connection: 'keep-alive',
+171 silly get     'x-served-by': 'cache-dfw1834-DFW',
+171 silly get     'x-cache': 'HIT',
+171 silly get     'x-cache-hits': '2',
+171 silly get     'x-timer': 'S1465391149.914686,VS0,VE0',
+171 silly get     vary: 'Accept-Encoding' } ]
+172 verbose etag https://registry.npmjs.org/assert from cache
+173 verbose get saving assert to C:\Users\exhibits\AppData\Roaming\npm-cache\registry.npmjs.org\assert\.cache.json
+174 http 304 https://registry.npmjs.org/async
+175 silly get cb [ 304,
+175 silly get   { date: 'Wed, 08 Jun 2016 13:05:49 GMT',
+175 silly get     via: '1.1 varnish',
+175 silly get     'cache-control': 'max-age=300',
+175 silly get     etag: '"81ARFU6SKZ9ELBT19GPEFHIK7"',
+175 silly get     age: '256',
+175 silly get     connection: 'keep-alive',
+175 silly get     'x-served-by': 'cache-dfw1820-DFW',
+175 silly get     'x-cache': 'HIT',
+175 silly get     'x-cache-hits': '13',
+175 silly get     'x-timer': 'S1465391149.918085,VS0,VE0',
+175 silly get     vary: 'Accept-Encoding' } ]
+176 verbose etag https://registry.npmjs.org/async from cache
+177 verbose get saving async to C:\Users\exhibits\AppData\Roaming\npm-cache\registry.npmjs.org\async\.cache.json
+178 silly addNameRange number 2 { name: 'assert', range: '>=0.4.9', hasData: true }
+179 silly addNameRange versions [ 'assert',
+179 silly addNameRange   [ '0.4.9',
+179 silly addNameRange     '1.0.0',
+179 silly addNameRange     '1.0.1',
+179 silly addNameRange     '1.0.2',
+179 silly addNameRange     '1.0.3',
+179 silly addNameRange     '1.1.0',
+179 silly addNameRange     '1.1.1',
+179 silly addNameRange     '1.1.2',
+179 silly addNameRange     '1.2.0',
+179 silly addNameRange     '1.3.0',
+179 silly addNameRange     '1.4.0',
+179 silly addNameRange     '1.4.1' ] ]
+180 verbose addNamed assert@1.4.1
+181 silly addNamed semver.valid 1.4.1
+182 silly addNamed semver.validRange 1.4.1
+183 silly addNameRange number 2 { name: 'ref-struct', range: '>=0.0.5', hasData: true }
+184 silly addNameRange versions [ 'ref-struct',
+184 silly addNameRange   [ '0.0.1',
+184 silly addNameRange     '0.0.2',
+184 silly addNameRange     '0.0.3',
+184 silly addNameRange     '0.0.4',
+184 silly addNameRange     '0.0.5',
+184 silly addNameRange     '0.0.6',
+184 silly addNameRange     '0.0.7',
+184 silly addNameRange     '1.0.0',
+184 silly addNameRange     '1.0.1',
+184 silly addNameRange     '1.0.2' ] ]
+185 verbose addNamed ref-struct@1.0.2
+186 silly addNamed semver.valid 1.0.2
+187 silly addNamed semver.validRange 1.0.2
+188 silly cache afterAdd assert@1.4.1
+189 verbose afterAdd C:\Users\exhibits\AppData\Roaming\npm-cache\assert\1.4.1\package\package.json not in flight; writing
+190 silly addNameRange number 2 { name: 'ref', range: '>=0.1.3', hasData: true }
+191 silly addNameRange versions [ 'ref',
+191 silly addNameRange   [ '0.0.1',
+191 silly addNameRange     '0.0.2',
+191 silly addNameRange     '0.0.3',
+191 silly addNameRange     '0.0.4',
+191 silly addNameRange     '0.0.5',
+191 silly addNameRange     '0.0.6',
+191 silly addNameRange     '0.0.7',
+191 silly addNameRange     '0.0.8',
+191 silly addNameRange     '0.0.9',
+191 silly addNameRange     '0.0.10',
+191 silly addNameRange     '0.0.11',
+191 silly addNameRange     '0.0.12',
+191 silly addNameRange     '0.0.13',
+191 silly addNameRange     '0.0.14',
+191 silly addNameRange     '0.0.15',
+191 silly addNameRange     '0.0.16',
+191 silly addNameRange     '0.0.17',
+191 silly addNameRange     '0.0.18',
+191 silly addNameRange     '0.0.19',
+191 silly addNameRange     '0.0.20',
+191 silly addNameRange     '0.1.0',
+191 silly addNameRange     '0.1.1',
+191 silly addNameRange     '0.1.2',
+191 silly addNameRange     '0.1.3',
+191 silly addNameRange     '0.2.0',
+191 silly addNameRange     '0.2.1',
+191 silly addNameRange     '0.2.2',
+191 silly addNameRange     '0.2.3',
+191 silly addNameRange     '0.3.0',
+191 silly addNameRange     '0.3.1',
+191 silly addNameRange     '0.3.2',
+191 silly addNameRange     '0.3.3',
+191 silly addNameRange     '0.3.4',
+191 silly addNameRange     '0.3.5',
+191 silly addNameRange     '1.0.0',
+191 silly addNameRange     '1.0.1',
+191 silly addNameRange     '1.0.2',
+191 silly addNameRange     '1.1.0',
+191 silly addNameRange     '1.1.1',
+191 silly addNameRange     '1.1.2',
+191 silly addNameRange     '1.1.3',
+191 silly addNameRange     '1.2.0',
+191 silly addNameRange     '1.3.0',
+191 silly addNameRange     '1.3.1',
+191 silly addNameRange     '1.3.2' ] ]
+192 verbose addNamed ref@1.3.2
+193 silly addNamed semver.valid 1.3.2
+194 silly addNamed semver.validRange 1.3.2
+195 silly cache afterAdd ref-struct@1.0.2
+196 verbose afterAdd C:\Users\exhibits\AppData\Roaming\npm-cache\ref-struct\1.0.2\package\package.json not in flight; writing
+197 silly addNameRange number 2 { name: 'async', range: '>=0.1.22', hasData: true }
+198 silly addNameRange versions [ 'async',
+198 silly addNameRange   [ '0.1.0',
+198 silly addNameRange     '0.1.1',
+198 silly addNameRange     '0.1.2',
+198 silly addNameRange     '0.1.3',
+198 silly addNameRange     '0.1.4',
+198 silly addNameRange     '0.1.5',
+198 silly addNameRange     '0.1.6',
+198 silly addNameRange     '0.1.7',
+198 silly addNameRange     '0.1.8',
+198 silly addNameRange     '0.1.9',
+198 silly addNameRange     '0.1.10',
+198 silly addNameRange     '0.1.11',
+198 silly addNameRange     '0.1.12',
+198 silly addNameRange     '0.1.13',
+198 silly addNameRange     '0.1.14',
+198 silly addNameRange     '0.1.15',
+198 silly addNameRange     '0.1.16',
+198 silly addNameRange     '0.1.17',
+198 silly addNameRange     '0.1.18',
+198 silly addNameRange     '0.1.19',
+198 silly addNameRange     '0.1.20',
+198 silly addNameRange     '0.1.21',
+198 silly addNameRange     '0.1.22',
+198 silly addNameRange     '0.2.0',
+198 silly addNameRange     '0.2.1',
+198 silly addNameRange     '0.2.2',
+198 silly addNameRange     '0.2.3',
+198 silly addNameRange     '0.2.4',
+198 silly addNameRange     '0.2.5',
+198 silly addNameRange     '0.2.6',
+198 silly addNameRange     '0.2.7',
+198 silly addNameRange     '0.2.8',
+198 silly addNameRange     '0.2.9',
+198 silly addNameRange     '0.2.10',
+198 silly addNameRange     '0.3.0',
+198 silly addNameRange     '0.4.0',
+198 silly addNameRange     '0.4.1',
+198 silly addNameRange     '0.5.0',
+198 silly addNameRange     '0.6.0',
+198 silly addNameRange     '0.6.1',
+198 silly addNameRange     '0.6.2',
+198 silly addNameRange     '0.7.0',
+198 silly addNameRange     '0.8.0',
+198 silly addNameRange     '0.9.0',
+198 silly addNameRange     '0.9.2',
+198 silly addNameRange     '1.0.0',
+198 silly addNameRange     '1.1.0',
+198 silly addNameRange     '1.2.0',
+198 silly addNameRange     '1.1.1',
+198 silly addNameRange     '1.2.1',
+198 silly addNameRange     '1.3.0',
+198 silly addNameRange     '1.4.0',
+198 silly addNameRange     '1.4.1',
+198 silly addNameRange     '1.4.2',
+198 silly addNameRange     '1.5.0',
+198 silly addNameRange     '1.5.1',
+198 silly addNameRange     '1.5.2',
+198 silly addNameRange     '2.0.0-alpha.0',
+198 silly addNameRange     '2.0.0-rc.1',
+198 silly addNameRange     '2.0.0-rc.2',
+198 silly addNameRange     '2.0.0-rc.3',
+198 silly addNameRange     '2.0.0-rc.4',
+198 silly addNameRange     '2.0.0-rc.5',
+198 silly addNameRange     '2.0.0-rc.6' ] ]
+199 verbose addNamed async@1.5.2
+200 silly addNamed semver.valid 1.5.2
+201 silly addNamed semver.validRange 1.5.2
+202 verbose afterAdd C:\Users\exhibits\AppData\Roaming\npm-cache\assert\1.4.1\package\package.json written
+203 silly cache afterAdd ref@1.3.2
+204 verbose afterAdd C:\Users\exhibits\AppData\Roaming\npm-cache\ref\1.3.2\package\package.json not in flight; writing
+205 verbose afterAdd C:\Users\exhibits\AppData\Roaming\npm-cache\ref-struct\1.0.2\package\package.json written
+206 silly cache afterAdd async@1.5.2
+207 verbose afterAdd C:\Users\exhibits\AppData\Roaming\npm-cache\async\1.5.2\package\package.json not in flight; writing
+208 verbose afterAdd C:\Users\exhibits\AppData\Roaming\npm-cache\async\1.5.2\package\package.json written
+209 verbose afterAdd C:\Users\exhibits\AppData\Roaming\npm-cache\ref\1.3.2\package\package.json written
+210 silly install resolved [ { name: 'assert',
+210 silly install resolved     description: 'commonjs assert - node.js api compatible',
+210 silly install resolved     keywords: [ 'assert' ],
+210 silly install resolved     version: '1.4.1',
+210 silly install resolved     homepage: 'https://github.com/defunctzombie/commonjs-assert',
+210 silly install resolved     repository:
+210 silly install resolved      { type: 'git',
+210 silly install resolved        url: 'git://github.com/defunctzombie/commonjs-assert.git' },
+210 silly install resolved     main: './assert.js',
+210 silly install resolved     dependencies: { util: '0.10.3' },
+210 silly install resolved     devDependencies: { mocha: '~1.21.4', zuul: '~3.10.0', 'zuul-ngrok': '^4.0.0' },
+210 silly install resolved     license: 'MIT',
+210 silly install resolved     scripts:
+210 silly install resolved      { 'test-node': 'mocha --ui qunit test.js',
+210 silly install resolved        'test-browser': 'zuul -- test.js',
+210 silly install resolved        test: 'npm run test-node && npm run test-browser',
+210 silly install resolved        'test-native': 'TEST_NATIVE=true mocha --ui qunit test.js',
+210 silly install resolved        'browser-local': 'zuul --no-coverage --local 8000 -- test.js' },
+210 silly install resolved     gitHead: 'ea25d53a51201cf268681c5ec37f7d51b2d82884',
+210 silly install resolved     bugs: { url: 'https://github.com/defunctzombie/commonjs-assert/issues' },
+210 silly install resolved     _id: 'assert@1.4.1',
+210 silly install resolved     _shasum: '99912d591836b5a6f5b345c0f07eefc08fc65d91',
+210 silly install resolved     _from: 'assert@>=0.4.9',
+210 silly install resolved     _npmVersion: '3.8.6',
+210 silly install resolved     _nodeVersion: '5.11.0',
+210 silly install resolved     _npmUser: { name: 'cwmma', email: 'calvin.metcalf@gmail.com' },
+210 silly install resolved     dist:
+210 silly install resolved      { shasum: '99912d591836b5a6f5b345c0f07eefc08fc65d91',
+210 silly install resolved        tarball: 'https://registry.npmjs.org/assert/-/assert-1.4.1.tgz' },
+210 silly install resolved     maintainers: [ [Object], [Object], [Object] ],
+210 silly install resolved     _npmOperationalInternal:
+210 silly install resolved      { host: 'packages-16-east.internal.npmjs.com',
+210 silly install resolved        tmp: 'tmp/assert-1.4.1.tgz_1464703323424_0.46298269950784743' },
+210 silly install resolved     directories: {},
+210 silly install resolved     _resolved: 'https://registry.npmjs.org/assert/-/assert-1.4.1.tgz',
+210 silly install resolved     readme: 'ERROR: No README data found!' },
+210 silly install resolved   { name: 'ref-struct',
+210 silly install resolved     description: 'Create ABI-compliant "struct" instances on top of Buffers',
+210 silly install resolved     keywords: [ 'struct', 'ref', 'abi', 'c', 'c++', 'ffi' ],
+210 silly install resolved     version: '1.0.2',
+210 silly install resolved     author:
+210 silly install resolved      { name: 'Nathan Rajlich',
+210 silly install resolved        email: 'nathan@tootallnate.net',
+210 silly install resolved        url: 'http://tootallnate.net' },
+210 silly install resolved     repository:
+210 silly install resolved      { type: 'git',
+210 silly install resolved        url: 'git://github.com/TooTallNate/ref-struct.git' },
+210 silly install resolved     main: './lib/struct.js',
+210 silly install resolved     license: 'MIT',
+210 silly install resolved     scripts: { test: 'node-gyp rebuild --directory test && mocha -gc --reporter spec' },
+210 silly install resolved     dependencies: { debug: '2', ref: '1' },
+210 silly install resolved     devDependencies:
+210 silly install resolved      { bindings: '~1.2.0',
+210 silly install resolved        nan: '2',
+210 silly install resolved        mocha: '*',
+210 silly install resolved        'ref-array': '~1.1.2' },
+210 silly install resolved     gitHead: 'edcf9ed79a2db1f809886c323ab87e0f5d49a9c9',
+210 silly install resolved     bugs: { url: 'https://github.com/TooTallNate/ref-struct/issues' },
+210 silly install resolved     homepage: 'https://github.com/TooTallNate/ref-struct#readme',
+210 silly install resolved     _id: 'ref-struct@1.0.2',
+210 silly install resolved     _shasum: '6e37cafa2db5f5f2ddaf5ae8bafced3e246cbc90',
+210 silly install resolved     _from: 'ref-struct@>=0.0.5',
+210 silly install resolved     _npmVersion: '2.13.3',
+210 silly install resolved     _nodeVersion: '3.2.0',
+210 silly install resolved     _npmUser: { name: 'tootallnate', email: 'nathan@tootallnate.net' },
+210 silly install resolved     maintainers: [ [Object] ],
+210 silly install resolved     dist:
+210 silly install resolved      { shasum: '6e37cafa2db5f5f2ddaf5ae8bafced3e246cbc90',
+210 silly install resolved        tarball: 'https://registry.npmjs.org/ref-struct/-/ref-struct-1.0.2.tgz' },
+210 silly install resolved     directories: {},
+210 silly install resolved     _resolved: 'https://registry.npmjs.org/ref-struct/-/ref-struct-1.0.2.tgz',
+210 silly install resolved     readme: 'ERROR: No README data found!' },
+210 silly install resolved   { name: 'async',
+210 silly install resolved     description: 'Higher-order functions and common patterns for asynchronous code',
+210 silly install resolved     main: 'lib/async.js',
+210 silly install resolved     files: [ 'lib', 'dist/async.js', 'dist/async.min.js' ],
+210 silly install resolved     author: { name: 'Caolan McMahon' },
+210 silly install resolved     version: '1.5.2',
+210 silly install resolved     keywords: [ 'async', 'callback', 'utility', 'module' ],
+210 silly install resolved     repository: { type: 'git', url: 'git+https://github.com/caolan/async.git' },
+210 silly install resolved     bugs: { url: 'https://github.com/caolan/async/issues' },
+210 silly install resolved     license: 'MIT',
+210 silly install resolved     devDependencies:
+210 silly install resolved      { benchmark: 'github:bestiejs/benchmark.js',
+210 silly install resolved        bluebird: '^2.9.32',
+210 silly install resolved        chai: '^3.1.0',
+210 silly install resolved        coveralls: '^2.11.2',
+210 silly install resolved        'es6-promise': '^2.3.0',
+210 silly install resolved        jscs: '^1.13.1',
+210 silly install resolved        jshint: '~2.8.0',
+210 silly install resolved        karma: '^0.13.2',
+210 silly install resolved        'karma-browserify': '^4.2.1',
+210 silly install resolved        'karma-firefox-launcher': '^0.1.6',
+210 silly install resolved        'karma-mocha': '^0.2.0',
+210 silly install resolved        'karma-mocha-reporter': '^1.0.2',
+210 silly install resolved        lodash: '^3.9.0',
+210 silly install resolved        mkdirp: '~0.5.1',
+210 silly install resolved        mocha: '^2.2.5',
+210 silly install resolved        'native-promise-only': '^0.8.0-a',
+210 silly install resolved        nodeunit: '>0.0.0',
+210 silly install resolved        nyc: '^2.1.0',
+210 silly install resolved        rsvp: '^3.0.18',
+210 silly install resolved        semver: '^4.3.6',
+210 silly install resolved        'uglify-js': '~2.4.0',
+210 silly install resolved        xyz: '^0.5.0',
+210 silly install resolved        yargs: '~3.9.1' },
+210 silly install resolved     jam: { main: 'lib/async.js', include: [Object], categories: [Object] },
+210 silly install resolved     scripts:
+210 silly install resolved      { 'mocha-node-test': 'mocha mocha_test/',
+210 silly install resolved        'mocha-browser-test': 'karma start',
+210 silly install resolved        'mocha-test': 'npm run mocha-node-test && npm run mocha-browser-test',
+210 silly install resolved        'nodeunit-test': 'nodeunit test/test-async.js',
+210 silly install resolved        test: 'npm run-script lint && npm run nodeunit-test && npm run mocha-test',
+210 silly install resolved        lint: 'jshint lib/*.js test/*.js perf/*.js && jscs lib/*.js test/*.js perf/*.js',
+210 silly install resolved        coverage: 'nyc npm test && nyc report',
+210 silly install resolved        coveralls: 'nyc npm test && nyc report --reporter=text-lcov | coveralls' },
+210 silly install resolved     spm: { main: 'lib/async.js' },
+210 silly install resolved     volo: { main: 'lib/async.js', ignore: [Object] },
+210 silly install resolved     gitHead: '9ab5c67b7cb3a4c3dad4a2d4552a2f6775545d6c',
+210 silly install resolved     homepage: 'https://github.com/caolan/async#readme',
+210 silly install resolved     _id: 'async@1.5.2',
+210 silly install resolved     _shasum: 'ec6a61ae56480c0c3cb241c95618e20892f9672a',
+210 silly install resolved     _from: 'async@>=0.1.22',
+210 silly install resolved     _npmVersion: '3.5.2',
+210 silly install resolved     _nodeVersion: '4.2.3',
+210 silly install resolved     _npmUser: { name: 'aearly', email: 'alexander.early@gmail.com' },
+210 silly install resolved     maintainers: [ [Object], [Object], [Object], [Object] ],
+210 silly install resolved     dist:
+210 silly install resolved      { shasum: 'ec6a61ae56480c0c3cb241c95618e20892f9672a',
+210 silly install resolved        tarball: 'https://registry.npmjs.org/async/-/async-1.5.2.tgz' },
+210 silly install resolved     directories: {},
+210 silly install resolved     _resolved: 'https://registry.npmjs.org/async/-/async-1.5.2.tgz',
+210 silly install resolved     readme: 'ERROR: No README data found!' },
+210 silly install resolved   { name: 'ref',
+210 silly install resolved     description: 'Turn Buffer instances into "pointers"',
+210 silly install resolved     keywords:
+210 silly install resolved      [ 'native',
+210 silly install resolved        'buffer',
+210 silly install resolved        'extensions',
+210 silly install resolved        'c++',
+210 silly install resolved        'pointer',
+210 silly install resolved        'reference',
+210 silly install resolved        'dereference',
+210 silly install resolved        'type',
+210 silly install resolved        'int',
+210 silly install resolved        'long',
+210 silly install resolved        'float',
+210 silly install resolved        'double',
+210 silly install resolved        'byte',
+210 silly install resolved        '64' ],
+210 silly install resolved     version: '1.3.2',
+210 silly install resolved     license: 'MIT',
+210 silly install resolved     author:
+210 silly install resolved      { name: 'Nathan Rajlich',
+210 silly install resolved        email: 'nathan@tootallnate.net',
+210 silly install resolved        url: 'http://tootallnate.net' },
+210 silly install resolved     repository: { type: 'git', url: 'git://github.com/TooTallNate/ref.git' },
+210 silly install resolved     main: './lib/ref.js',
+210 silly install resolved     scripts:
+210 silly install resolved      { docs: 'node docs/compile',
+210 silly install resolved        test: 'mocha -gc --reporter spec',
+210 silly install resolved        install: 'node-gyp rebuild' },
+210 silly install resolved     dependencies: { bindings: '1', debug: '2', nan: '2' },
+210 silly install resolved     devDependencies:
+210 silly install resolved      { dox: '0.4.4',
+210 silly install resolved        'highlight.js': '1',
+210 silly install resolved        jade: '^0.35.0',
+210 silly install resolved        marked: '^0.3.2',
+210 silly install resolved        mocha: '*',
+210 silly install resolved        weak: '1' },
+210 silly install resolved     gypfile: true,
+210 silly install resolved     gitHead: '670f4ccbf28c964d844568109bf405f157cfa4c5',
+210 silly install resolved     bugs: { url: 'https://github.com/TooTallNate/ref/issues' },
+210 silly install resolved     homepage: 'https://github.com/TooTallNate/ref#readme',
+210 silly install resolved     _id: 'ref@1.3.2',
+210 silly install resolved     _shasum: 'f500f22be73fdcd632668e7795309cf088fd06d6',
+210 silly install resolved     _from: 'ref@>=0.1.3',
+210 silly install resolved     _npmVersion: '3.3.12',
+210 silly install resolved     _nodeVersion: '5.3.0',
+210 silly install resolved     _npmUser: { name: 'tootallnate', email: 'nathan@tootallnate.net' },
+210 silly install resolved     maintainers: [ [Object] ],
+210 silly install resolved     dist:
+210 silly install resolved      { shasum: 'f500f22be73fdcd632668e7795309cf088fd06d6',
+210 silly install resolved        tarball: 'https://registry.npmjs.org/ref/-/ref-1.3.2.tgz' },
+210 silly install resolved     directories: {},
+210 silly install resolved     _resolved: 'https://registry.npmjs.org/ref/-/ref-1.3.2.tgz',
+210 silly install resolved     readme: 'ERROR: No README data found!' } ]
+211 info install assert@1.4.1 into C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole
+212 info install ref-struct@1.0.2 into C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole
+213 info install async@1.5.2 into C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole
+214 info install ref@1.3.2 into C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole
+215 info installOne assert@1.4.1
+216 verbose installOne of assert to C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole not in flight; installing
+217 info installOne ref-struct@1.0.2
+218 verbose installOne of ref-struct to C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole not in flight; installing
+219 info installOne async@1.5.2
+220 verbose installOne of async to C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole not in flight; installing
+221 info installOne ref@1.3.2
+222 verbose installOne of ref to C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole not in flight; installing
+223 verbose lock using C:\Users\exhibits\AppData\Roaming\npm-cache\_locks\assert-f2a1c5ef6301fa29.lock for C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\assert
+224 silly install write writing assert 1.4.1 to C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\assert
+225 silly cache addNamed cb assert@1.4.1
+226 verbose unbuild node_modules\win32ole\node_modules\assert
+227 verbose lock using C:\Users\exhibits\AppData\Roaming\npm-cache\_locks\ref-struct-25eb812d735ac69c.lock for C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref-struct
+228 verbose lock using C:\Users\exhibits\AppData\Roaming\npm-cache\_locks\async-687837d98feec96e.lock for C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\async
+229 verbose lock using C:\Users\exhibits\AppData\Roaming\npm-cache\_locks\ref-fa9a800bb36feb24.lock for C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref
+230 silly install write writing ref-struct 1.0.2 to C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref-struct
+231 silly cache addNamed cb ref-struct@1.0.2
+232 verbose unbuild node_modules\win32ole\node_modules\ref-struct
+233 silly install write writing async 1.5.2 to C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\async
+234 silly cache addNamed cb async@1.5.2
+235 verbose unbuild node_modules\win32ole\node_modules\async
+236 silly install write writing ref 1.3.2 to C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref
+237 silly cache addNamed cb ref@1.3.2
+238 verbose unbuild node_modules\win32ole\node_modules\ref
+239 silly gentlyRm C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\assert is being purged from base C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule
+240 verbose gentlyRm don't care about contents; nuking C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\assert
+241 verbose tar unpack C:\Users\exhibits\AppData\Roaming\npm-cache\assert\1.4.1\package.tgz
+242 verbose tar unpacking to C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\assert
+243 silly gentlyRm C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\assert is being purged
+244 verbose gentlyRm don't care about contents; nuking C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\assert
+245 silly gentlyRm C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref-struct is being purged from base C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule
+246 verbose gentlyRm don't care about contents; nuking C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref-struct
+247 silly gentlyRm C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\async is being purged from base C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule
+248 verbose gentlyRm don't care about contents; nuking C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\async
+249 silly gentlyRm C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref is being purged from base C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule
+250 verbose gentlyRm don't care about contents; nuking C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref
+251 silly gunzTarPerm modes [ '777', '666' ]
+252 verbose tar unpack C:\Users\exhibits\AppData\Roaming\npm-cache\ref-struct\1.0.2\package.tgz
+253 verbose tar unpacking to C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref-struct
+254 silly gentlyRm C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref-struct is being purged
+255 verbose gentlyRm don't care about contents; nuking C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref-struct
+256 verbose tar unpack C:\Users\exhibits\AppData\Roaming\npm-cache\async\1.5.2\package.tgz
+257 verbose tar unpacking to C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\async
+258 silly gentlyRm C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\async is being purged
+259 verbose gentlyRm don't care about contents; nuking C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\async
+260 verbose tar unpack C:\Users\exhibits\AppData\Roaming\npm-cache\ref\1.3.2\package.tgz
+261 verbose tar unpacking to C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref
+262 silly gentlyRm C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref is being purged
+263 verbose gentlyRm don't care about contents; nuking C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref
+264 silly gunzTarPerm modes [ '777', '666' ]
+265 silly gunzTarPerm modes [ '777', '666' ]
+266 silly gunzTarPerm modes [ '777', '666' ]
+267 silly gunzTarPerm extractEntry package.json
+268 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+269 silly gunzTarPerm extractEntry package.json
+270 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+271 silly gunzTarPerm extractEntry package.json
+272 silly gunzTarPerm modified mode [ 'package.json', 436, 438 ]
+273 silly gunzTarPerm extractEntry package.json
+274 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+275 silly gunzTarPerm extractEntry .npmignore
+276 silly gunzTarPerm modified mode [ '.npmignore', 420, 438 ]
+277 silly gunzTarPerm extractEntry README.md
+278 silly gunzTarPerm modified mode [ 'README.md', 420, 438 ]
+279 silly gunzTarPerm extractEntry .npmignore
+280 silly gunzTarPerm modified mode [ '.npmignore', 420, 438 ]
+281 silly gunzTarPerm extractEntry README.md
+282 silly gunzTarPerm modified mode [ 'README.md', 420, 438 ]
+283 silly gunzTarPerm extractEntry README.md
+284 silly gunzTarPerm modified mode [ 'README.md', 436, 438 ]
+285 silly gunzTarPerm extractEntry LICENSE
+286 silly gunzTarPerm modified mode [ 'LICENSE', 436, 438 ]
+287 silly gunzTarPerm extractEntry .npmignore
+288 silly gunzTarPerm modified mode [ '.npmignore', 420, 438 ]
+289 silly gunzTarPerm extractEntry README.md
+290 silly gunzTarPerm modified mode [ 'README.md', 420, 438 ]
+291 silly gunzTarPerm extractEntry LICENSE
+292 silly gunzTarPerm modified mode [ 'LICENSE', 420, 438 ]
+293 silly gunzTarPerm extractEntry assert.js
+294 silly gunzTarPerm modified mode [ 'assert.js', 420, 438 ]
+295 silly gunzTarPerm extractEntry .travis.yml
+296 silly gunzTarPerm modified mode [ '.travis.yml', 420, 438 ]
+297 silly gunzTarPerm extractEntry History.md
+298 silly gunzTarPerm modified mode [ 'History.md', 420, 438 ]
+299 silly gunzTarPerm extractEntry CHANGELOG.md
+300 silly gunzTarPerm modified mode [ 'CHANGELOG.md', 436, 438 ]
+301 silly gunzTarPerm extractEntry dist/async.js
+302 silly gunzTarPerm modified mode [ 'dist/async.js', 436, 438 ]
+303 silly gunzTarPerm extractEntry dist/async.min.js
+304 silly gunzTarPerm modified mode [ 'dist/async.min.js', 436, 438 ]
+305 silly gunzTarPerm extractEntry appveyor.yml
+306 silly gunzTarPerm modified mode [ 'appveyor.yml', 420, 438 ]
+307 silly gunzTarPerm extractEntry binding.gyp
+308 silly gunzTarPerm modified mode [ 'binding.gyp', 420, 438 ]
+309 silly gunzTarPerm extractEntry test.js
+310 silly gunzTarPerm modified mode [ 'test.js', 420, 438 ]
+311 silly gunzTarPerm extractEntry .jshintrc
+312 silly gunzTarPerm modified mode [ '.jshintrc', 420, 438 ]
+313 silly gunzTarPerm extractEntry appveyor.yml
+314 silly gunzTarPerm modified mode [ 'appveyor.yml', 420, 438 ]
+315 silly gunzTarPerm extractEntry .travis.yml
+316 silly gunzTarPerm modified mode [ '.travis.yml', 420, 438 ]
+317 silly gunzTarPerm extractEntry docs/compile.js
+318 silly gunzTarPerm modified mode [ 'docs/compile.js', 420, 438 ]
+319 silly gunzTarPerm extractEntry .travis.yml
+320 silly gunzTarPerm modified mode [ '.travis.yml', 420, 438 ]
+321 silly gunzTarPerm extractEntry .zuul.yml
+322 silly gunzTarPerm modified mode [ '.zuul.yml', 420, 438 ]
+323 silly gunzTarPerm extractEntry lib/struct.js
+324 silly gunzTarPerm modified mode [ 'lib/struct.js', 420, 438 ]
+325 silly gunzTarPerm extractEntry lib/async.js
+326 silly gunzTarPerm modified mode [ 'lib/async.js', 436, 438 ]
+327 silly gunzTarPerm extractEntry docs/gh-pages.sh
+328 silly gunzTarPerm modified mode [ 'docs/gh-pages.sh', 493, 511 ]
+329 silly gunzTarPerm extractEntry docs/images/apple-touch-icon-114x114.png
+330 silly gunzTarPerm modified mode [ 'docs/images/apple-touch-icon-114x114.png', 420, 438 ]
+331 silly gunzTarPerm extractEntry docs/images/apple-touch-icon-72x72.png
+332 silly gunzTarPerm modified mode [ 'docs/images/apple-touch-icon-72x72.png', 420, 438 ]
+333 silly gunzTarPerm extractEntry docs/images/apple-touch-icon.png
+334 silly gunzTarPerm modified mode [ 'docs/images/apple-touch-icon.png', 420, 438 ]
+335 silly gunzTarPerm extractEntry docs/images/favicon.ico
+336 silly gunzTarPerm modified mode [ 'docs/images/favicon.ico', 420, 438 ]
+337 silly gunzTarPerm extractEntry docs/images/ref.pxm
+338 silly gunzTarPerm modified mode [ 'docs/images/ref.pxm', 420, 438 ]
+339 silly gunzTarPerm extractEntry docs/index.jade
+340 silly gunzTarPerm modified mode [ 'docs/index.jade', 420, 438 ]
+341 silly gunzTarPerm extractEntry docs/scripts/jquery-1.7.2.min.js
+342 silly gunzTarPerm modified mode [ 'docs/scripts/jquery-1.7.2.min.js', 420, 438 ]
+343 silly gunzTarPerm extractEntry docs/scripts/main.js
+344 silly gunzTarPerm modified mode [ 'docs/scripts/main.js', 420, 438 ]
+345 silly gunzTarPerm extractEntry docs/stylesheets/base.css
+346 silly gunzTarPerm modified mode [ 'docs/stylesheets/base.css', 420, 438 ]
+347 silly gunzTarPerm extractEntry docs/stylesheets/layout.css
+348 silly gunzTarPerm modified mode [ 'docs/stylesheets/layout.css', 420, 438 ]
+349 info preinstall ref-struct@1.0.2
+350 silly prepareForInstallMany adding debug@2 from ref-struct dependencies
+351 silly cache add args [ 'debug@2', null ]
+352 verbose cache add spec debug@2
+353 silly cache add parsed spec { raw: 'debug@2',
+353 silly cache add   scope: null,
+353 silly cache add   name: 'debug',
+353 silly cache add   rawSpec: '2',
+353 silly cache add   spec: '>=2.0.0 <3.0.0',
+353 silly cache add   type: 'range' }
+354 verbose addNamed debug@>=2.0.0 <3.0.0
+355 silly addNamed semver.valid null
+356 silly addNamed semver.validRange >=2.0.0 <3.0.0
+357 silly addNameRange { name: 'debug', range: '>=2.0.0 <3.0.0', hasData: false }
+358 silly mapToRegistry name debug
+359 silly mapToRegistry using default registry
+360 silly mapToRegistry registry https://registry.npmjs.org/
+361 silly mapToRegistry uri https://registry.npmjs.org/debug
+362 verbose addNameRange registry:https://registry.npmjs.org/debug not in flight; fetching
+363 verbose request uri https://registry.npmjs.org/debug
+364 verbose request no auth needed
+365 info attempt registry request try #1 at 6:06:00 AM
+366 verbose etag "9K1MWGO25MI6JV4O209795NK5"
+367 http request GET https://registry.npmjs.org/debug
+368 silly gunzTarPerm extractEntry docs/stylesheets/skeleton.css
+369 silly gunzTarPerm modified mode [ 'docs/stylesheets/skeleton.css', 420, 438 ]
+370 silly gunzTarPerm extractEntry lib/ref.js
+371 silly gunzTarPerm modified mode [ 'lib/ref.js', 420, 438 ]
+372 silly gunzTarPerm extractEntry src/binding.cc
+373 silly gunzTarPerm modified mode [ 'src/binding.cc', 420, 438 ]
+374 silly gunzTarPerm extractEntry History.md
+375 silly gunzTarPerm modified mode [ 'History.md', 420, 438 ]
+376 silly gunzTarPerm extractEntry test/address.js
+377 silly gunzTarPerm modified mode [ 'test/address.js', 420, 438 ]
+378 silly gunzTarPerm extractEntry test/coerce.js
+379 silly gunzTarPerm modified mode [ 'test/coerce.js', 420, 438 ]
+380 silly gunzTarPerm extractEntry test/int64.js
+381 silly gunzTarPerm modified mode [ 'test/int64.js', 420, 438 ]
+382 silly gunzTarPerm extractEntry test/iojs3issue.js
+383 silly gunzTarPerm modified mode [ 'test/iojs3issue.js', 420, 438 ]
+384 silly gunzTarPerm extractEntry test/isNull.js
+385 silly gunzTarPerm modified mode [ 'test/isNull.js', 420, 438 ]
+386 silly gunzTarPerm extractEntry test/char.js
+387 silly gunzTarPerm modified mode [ 'test/char.js', 420, 438 ]
+388 silly gunzTarPerm extractEntry test/pointer.js
+389 silly gunzTarPerm modified mode [ 'test/pointer.js', 420, 438 ]
+390 silly gunzTarPerm extractEntry test/ref-deref.js
+391 silly gunzTarPerm modified mode [ 'test/ref-deref.js', 420, 438 ]
+392 silly gunzTarPerm extractEntry test/reinterpret.js
+393 silly gunzTarPerm modified mode [ 'test/reinterpret.js', 420, 438 ]
+394 silly gunzTarPerm extractEntry test/reinterpretUntilZeros.js
+395 silly gunzTarPerm modified mode [ 'test/reinterpretUntilZeros.js', 420, 438 ]
+396 silly gunzTarPerm extractEntry test/string.js
+397 silly gunzTarPerm modified mode [ 'test/string.js', 420, 438 ]
+398 silly gunzTarPerm extractEntry test/bool.js
+399 silly gunzTarPerm modified mode [ 'test/bool.js', 420, 438 ]
+400 silly gunzTarPerm extractEntry test/types.js
+401 silly gunzTarPerm modified mode [ 'test/types.js', 420, 438 ]
+402 silly gunzTarPerm extractEntry test/alloc.js
+403 silly gunzTarPerm modified mode [ 'test/alloc.js', 420, 438 ]
+404 silly gunzTarPerm extractEntry test/object.js
+405 silly gunzTarPerm modified mode [ 'test/object.js', 420, 438 ]
+406 silly gunzTarPerm extractEntry test/utf16le.bin
+407 silly gunzTarPerm modified mode [ 'test/utf16le.bin', 420, 438 ]
+408 info preinstall assert@1.4.1
+409 silly prepareForInstallMany adding util@0.10.3 from assert dependencies
+410 silly cache add args [ 'util@0.10.3', null ]
+411 verbose cache add spec util@0.10.3
+412 silly cache add parsed spec { raw: 'util@0.10.3',
+412 silly cache add   scope: null,
+412 silly cache add   name: 'util',
+412 silly cache add   rawSpec: '0.10.3',
+412 silly cache add   spec: '0.10.3',
+412 silly cache add   type: 'version' }
+413 verbose addNamed util@0.10.3
+414 silly addNamed semver.valid 0.10.3
+415 silly addNamed semver.validRange 0.10.3
+416 silly mapToRegistry name util
+417 silly mapToRegistry using default registry
+418 silly mapToRegistry registry https://registry.npmjs.org/
+419 silly mapToRegistry uri https://registry.npmjs.org/util
+420 verbose addNameVersion registry:https://registry.npmjs.org/util not in flight; fetching
+421 verbose request uri https://registry.npmjs.org/util
+422 verbose request no auth needed
+423 info attempt registry request try #1 at 6:06:00 AM
+424 verbose etag "CCYSQGRWDSJ4T4EMX2L44O00T"
+425 http request GET https://registry.npmjs.org/util
+426 info preinstall async@1.5.2
+427 silly install resolved []
+428 verbose about to build C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\async
+429 info build C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\async
+430 verbose linkStuff [ false,
+430 verbose linkStuff   false,
+430 verbose linkStuff   false,
+430 verbose linkStuff   'C:\\Users\\exhibits\\Documents\\nodePrograms\\FlirNodeModule\\node_modules\\win32ole\\node_modules' ]
+431 info linkStuff async@1.5.2
+432 verbose linkBins async@1.5.2
+433 verbose linkMans async@1.5.2
+434 verbose rebuildBundles async@1.5.2
+435 info install async@1.5.2
+436 info postinstall async@1.5.2
+437 verbose unlock done using C:\Users\exhibits\AppData\Roaming\npm-cache\_locks\async-687837d98feec96e.lock for C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\async
+438 http 304 https://registry.npmjs.org/debug
+439 silly get cb [ 304,
+439 silly get   { date: 'Wed, 08 Jun 2016 13:05:50 GMT',
+439 silly get     via: '1.1 varnish',
+439 silly get     'cache-control': 'max-age=300',
+439 silly get     etag: '"9K1MWGO25MI6JV4O209795NK5"',
+439 silly get     age: '14',
+439 silly get     connection: 'keep-alive',
+439 silly get     'x-served-by': 'cache-dfw1848-DFW',
+439 silly get     'x-cache': 'HIT',
+439 silly get     'x-cache-hits': '3',
+439 silly get     'x-timer': 'S1465391150.260328,VS0,VE0',
+439 silly get     vary: 'Accept-Encoding' } ]
+440 verbose etag https://registry.npmjs.org/debug from cache
+441 verbose get saving debug to C:\Users\exhibits\AppData\Roaming\npm-cache\registry.npmjs.org\debug\.cache.json
+442 silly addNameRange number 2 { name: 'debug', range: '>=2.0.0 <3.0.0', hasData: true }
+443 silly addNameRange versions [ 'debug',
+443 silly addNameRange   [ '0.0.1',
+443 silly addNameRange     '0.1.0',
+443 silly addNameRange     '0.2.0',
+443 silly addNameRange     '0.3.0',
+443 silly addNameRange     '0.4.0',
+443 silly addNameRange     '0.4.1',
+443 silly addNameRange     '0.5.0',
+443 silly addNameRange     '0.6.0',
+443 silly addNameRange     '0.7.0',
+443 silly addNameRange     '0.7.1',
+443 silly addNameRange     '0.7.2',
+443 silly addNameRange     '0.7.3',
+443 silly addNameRange     '0.7.4',
+443 silly addNameRange     '0.8.0',
+443 silly addNameRange     '0.8.1',
+443 silly addNameRange     '1.0.0',
+443 silly addNameRange     '1.0.1',
+443 silly addNameRange     '1.0.2',
+443 silly addNameRange     '1.0.3',
+443 silly addNameRange     '1.0.4',
+443 silly addNameRange     '2.0.0',
+443 silly addNameRange     '2.1.0',
+443 silly addNameRange     '2.1.1',
+443 silly addNameRange     '2.1.2',
+443 silly addNameRange     '2.1.3',
+443 silly addNameRange     '2.2.0' ] ]
+444 verbose addNamed debug@2.2.0
+445 silly addNamed semver.valid 2.2.0
+446 silly addNamed semver.validRange 2.2.0
+447 silly cache afterAdd debug@2.2.0
+448 verbose afterAdd C:\Users\exhibits\AppData\Roaming\npm-cache\debug\2.2.0\package\package.json not in flight; writing
+449 verbose afterAdd C:\Users\exhibits\AppData\Roaming\npm-cache\debug\2.2.0\package\package.json written
+450 silly install resolved [ { name: 'debug',
+450 silly install resolved     version: '2.2.0',
+450 silly install resolved     repository: { type: 'git', url: 'git://github.com/visionmedia/debug.git' },
+450 silly install resolved     description: 'small debugging utility',
+450 silly install resolved     keywords: [ 'debug', 'log', 'debugger' ],
+450 silly install resolved     author: { name: 'TJ Holowaychuk', email: 'tj@vision-media.ca' },
+450 silly install resolved     contributors: [ [Object] ],
+450 silly install resolved     license: 'MIT',
+450 silly install resolved     dependencies: { ms: '0.7.1' },
+450 silly install resolved     devDependencies: { browserify: '9.0.3', mocha: '*' },
+450 silly install resolved     main: './node.js',
+450 silly install resolved     browser: './browser.js',
+450 silly install resolved     component: { scripts: [Object] },
+450 silly install resolved     gitHead: 'b38458422b5aa8aa6d286b10dfe427e8a67e2b35',
+450 silly install resolved     bugs: { url: 'https://github.com/visionmedia/debug/issues' },
+450 silly install resolved     homepage: 'https://github.com/visionmedia/debug',
+450 silly install resolved     _id: 'debug@2.2.0',
+450 silly install resolved     scripts: {},
+450 silly install resolved     _shasum: 'f87057e995b1a1f6ae6a4960664137bc56f039da',
+450 silly install resolved     _from: 'debug@>=2.0.0 <3.0.0',
+450 silly install resolved     _npmVersion: '2.7.4',
+450 silly install resolved     _nodeVersion: '0.12.2',
+450 silly install resolved     _npmUser: { name: 'tootallnate', email: 'nathan@tootallnate.net' },
+450 silly install resolved     maintainers: [ [Object], [Object] ],
+450 silly install resolved     dist:
+450 silly install resolved      { shasum: 'f87057e995b1a1f6ae6a4960664137bc56f039da',
+450 silly install resolved        tarball: 'https://registry.npmjs.org/debug/-/debug-2.2.0.tgz' },
+450 silly install resolved     directories: {},
+450 silly install resolved     _resolved: 'https://registry.npmjs.org/debug/-/debug-2.2.0.tgz',
+450 silly install resolved     readme: 'ERROR: No README data found!' } ]
+451 info install debug@2.2.0 into C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref-struct
+452 info installOne debug@2.2.0
+453 verbose installOne of debug to C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref-struct not in flight; installing
+454 verbose lock using C:\Users\exhibits\AppData\Roaming\npm-cache\_locks\debug-c2ad198d4956a727.lock for C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref-struct\node_modules\debug
+455 silly install write writing debug 2.2.0 to C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref-struct\node_modules\debug
+456 silly cache addNamed cb debug@2.2.0
+457 verbose unbuild node_modules\win32ole\node_modules\ref-struct\node_modules\debug
+458 http 304 https://registry.npmjs.org/util
+459 silly get cb [ 304,
+459 silly get   { date: 'Wed, 08 Jun 2016 13:05:50 GMT',
+459 silly get     via: '1.1 varnish',
+459 silly get     'cache-control': 'max-age=300',
+459 silly get     etag: '"CCYSQGRWDSJ4T4EMX2L44O00T"',
+459 silly get     age: '108',
+459 silly get     connection: 'keep-alive',
+459 silly get     'x-served-by': 'cache-dfw1845-DFW',
+459 silly get     'x-cache': 'HIT',
+459 silly get     'x-cache-hits': '2',
+459 silly get     'x-timer': 'S1465391150.279369,VS0,VE0',
+459 silly get     vary: 'Accept-Encoding' } ]
+460 verbose etag https://registry.npmjs.org/util from cache
+461 verbose get saving util to C:\Users\exhibits\AppData\Roaming\npm-cache\registry.npmjs.org\util\.cache.json
+462 silly gentlyRm C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref-struct\node_modules\debug is being purged from base C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule
+463 verbose gentlyRm don't care about contents; nuking C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref-struct\node_modules\debug
+464 verbose tar unpack C:\Users\exhibits\AppData\Roaming\npm-cache\debug\2.2.0\package.tgz
+465 verbose tar unpacking to C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref-struct\node_modules\debug
+466 silly gentlyRm C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref-struct\node_modules\debug is being purged
+467 verbose gentlyRm don't care about contents; nuking C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref-struct\node_modules\debug
+468 silly gunzTarPerm modes [ '777', '666' ]
+469 silly gunzTarPerm extractEntry package.json
+470 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+471 silly gunzTarPerm extractEntry .npmignore
+472 silly gunzTarPerm modified mode [ '.npmignore', 420, 438 ]
+473 silly gunzTarPerm extractEntry node.js
+474 silly gunzTarPerm modified mode [ 'node.js', 420, 438 ]
+475 silly cache afterAdd util@0.10.3
+476 verbose afterAdd C:\Users\exhibits\AppData\Roaming\npm-cache\util\0.10.3\package\package.json not in flight; writing
+477 verbose afterAdd C:\Users\exhibits\AppData\Roaming\npm-cache\util\0.10.3\package\package.json written
+478 silly install resolved [ { author: { name: 'Joyent', url: 'http://www.joyent.com' },
+478 silly install resolved     name: 'util',
+478 silly install resolved     description: 'Node.JS util module',
+478 silly install resolved     keywords: [ 'util' ],
+478 silly install resolved     version: '0.10.3',
+478 silly install resolved     homepage: 'https://github.com/defunctzombie/node-util',
+478 silly install resolved     repository:
+478 silly install resolved      { type: 'git',
+478 silly install resolved        url: 'git://github.com/defunctzombie/node-util.git' },
+478 silly install resolved     main: './util.js',
+478 silly install resolved     scripts: { test: 'node test/node/*.js && zuul test/browser/*.js' },
+478 silly install resolved     dependencies: { inherits: '2.0.1' },
+478 silly install resolved     license: 'MIT',
+478 silly install resolved     devDependencies: { zuul: '~1.0.9' },
+478 silly install resolved     browser: { './support/isBuffer.js': './support/isBufferBrowser.js' },
+478 silly install resolved     bugs: { url: 'https://github.com/defunctzombie/node-util/issues' },
+478 silly install resolved     _id: 'util@0.10.3',
+478 silly install resolved     dist:
+478 silly install resolved      { shasum: '7afb1afe50805246489e3db7fe0ed379336ac0f9',
+478 silly install resolved        tarball: 'https://registry.npmjs.org/util/-/util-0.10.3.tgz' },
+478 silly install resolved     _from: 'util@0.10.3',
+478 silly install resolved     _npmVersion: '1.3.24',
+478 silly install resolved     _npmUser: { name: 'shtylman', email: 'shtylman@gmail.com' },
+478 silly install resolved     maintainers: [ [Object] ],
+478 silly install resolved     directories: {},
+478 silly install resolved     _shasum: '7afb1afe50805246489e3db7fe0ed379336ac0f9',
+478 silly install resolved     _resolved: 'https://registry.npmjs.org/util/-/util-0.10.3.tgz',
+478 silly install resolved     readme: 'ERROR: No README data found!' } ]
+479 info install util@0.10.3 into C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\assert
+480 info installOne util@0.10.3
+481 verbose installOne of util to C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\assert not in flight; installing
+482 verbose lock using C:\Users\exhibits\AppData\Roaming\npm-cache\_locks\util-c61ed4427f246926.lock for C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\assert\node_modules\util
+483 silly install write writing util 0.10.3 to C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\assert\node_modules\util
+484 silly cache addNamed cb util@0.10.3
+485 verbose unbuild node_modules\win32ole\node_modules\assert\node_modules\util
+486 silly gunzTarPerm extractEntry debug.js
+487 silly gunzTarPerm modified mode [ 'debug.js', 420, 438 ]
+488 silly gunzTarPerm extractEntry browser.js
+489 silly gunzTarPerm modified mode [ 'browser.js', 420, 438 ]
+490 silly gentlyRm C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\assert\node_modules\util is being purged from base C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule
+491 verbose gentlyRm don't care about contents; nuking C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\assert\node_modules\util
+492 verbose tar unpack C:\Users\exhibits\AppData\Roaming\npm-cache\util\0.10.3\package.tgz
+493 verbose tar unpacking to C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\assert\node_modules\util
+494 silly gentlyRm C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\assert\node_modules\util is being purged
+495 verbose gentlyRm don't care about contents; nuking C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\assert\node_modules\util
+496 silly gunzTarPerm modes [ '777', '666' ]
+497 silly gunzTarPerm extractEntry Readme.md
+498 silly gunzTarPerm modified mode [ 'Readme.md', 420, 438 ]
+499 silly gunzTarPerm extractEntry package.json
+500 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+501 silly gunzTarPerm extractEntry .npmignore
+502 silly gunzTarPerm modified mode [ '.npmignore', 420, 438 ]
+503 silly gunzTarPerm extractEntry README.md
+504 silly gunzTarPerm modified mode [ 'README.md', 420, 438 ]
+505 silly gunzTarPerm extractEntry bower.json
+506 silly gunzTarPerm modified mode [ 'bower.json', 420, 438 ]
+507 silly gunzTarPerm extractEntry .jshintrc
+508 silly gunzTarPerm modified mode [ '.jshintrc', 420, 438 ]
+509 silly gunzTarPerm extractEntry LICENSE
+510 silly gunzTarPerm modified mode [ 'LICENSE', 420, 438 ]
+511 silly gunzTarPerm extractEntry util.js
+512 silly gunzTarPerm modified mode [ 'util.js', 420, 438 ]
+513 silly gunzTarPerm extractEntry component.json
+514 silly gunzTarPerm modified mode [ 'component.json', 420, 438 ]
+515 silly gunzTarPerm extractEntry Makefile
+516 silly gunzTarPerm modified mode [ 'Makefile', 420, 438 ]
+517 silly gunzTarPerm extractEntry .travis.yml
+518 silly gunzTarPerm modified mode [ '.travis.yml', 420, 438 ]
+519 silly gunzTarPerm extractEntry History.md
+520 silly gunzTarPerm modified mode [ 'History.md', 420, 438 ]
+521 silly gunzTarPerm extractEntry .zuul.yml
+522 silly gunzTarPerm modified mode [ '.zuul.yml', 420, 438 ]
+523 silly gunzTarPerm extractEntry support/isBuffer.js
+524 silly gunzTarPerm modified mode [ 'support/isBuffer.js', 420, 438 ]
+525 silly gunzTarPerm extractEntry support/isBufferBrowser.js
+526 silly gunzTarPerm modified mode [ 'support/isBufferBrowser.js', 420, 438 ]
+527 silly gunzTarPerm extractEntry test/browser/inspect.js
+528 silly gunzTarPerm modified mode [ 'test/browser/inspect.js', 420, 438 ]
+529 info preinstall debug@2.2.0
+530 silly prepareForInstallMany adding ms@0.7.1 from debug dependencies
+531 silly cache add args [ 'ms@0.7.1', null ]
+532 verbose cache add spec ms@0.7.1
+533 silly cache add parsed spec { raw: 'ms@0.7.1',
+533 silly cache add   scope: null,
+533 silly cache add   name: 'ms',
+533 silly cache add   rawSpec: '0.7.1',
+533 silly cache add   spec: '0.7.1',
+533 silly cache add   type: 'version' }
+534 verbose addNamed ms@0.7.1
+535 silly addNamed semver.valid 0.7.1
+536 silly addNamed semver.validRange 0.7.1
+537 silly mapToRegistry name ms
+538 silly mapToRegistry using default registry
+539 silly mapToRegistry registry https://registry.npmjs.org/
+540 silly mapToRegistry uri https://registry.npmjs.org/ms
+541 verbose addNameVersion registry:https://registry.npmjs.org/ms not in flight; fetching
+542 verbose request uri https://registry.npmjs.org/ms
+543 verbose request no auth needed
+544 info attempt registry request try #1 at 6:06:00 AM
+545 verbose etag "5143492BBX5I18XHV9RBWJ2GY"
+546 http request GET https://registry.npmjs.org/ms
+547 silly gunzTarPerm extractEntry test/browser/is.js
+548 silly gunzTarPerm modified mode [ 'test/browser/is.js', 420, 438 ]
+549 silly gunzTarPerm extractEntry test/node/debug.js
+550 silly gunzTarPerm modified mode [ 'test/node/debug.js', 420, 438 ]
+551 silly gunzTarPerm extractEntry test/node/format.js
+552 silly gunzTarPerm modified mode [ 'test/node/format.js', 420, 438 ]
+553 silly gunzTarPerm extractEntry test/node/inspect.js
+554 silly gunzTarPerm modified mode [ 'test/node/inspect.js', 420, 438 ]
+555 info preinstall ref@1.3.2
+556 silly prepareForInstallMany adding debug@2 from ref dependencies
+557 silly cache add args [ 'debug@2', null ]
+558 verbose cache add spec debug@2
+559 silly cache add parsed spec { raw: 'debug@2',
+559 silly cache add   scope: null,
+559 silly cache add   name: 'debug',
+559 silly cache add   rawSpec: '2',
+559 silly cache add   spec: '>=2.0.0 <3.0.0',
+559 silly cache add   type: 'range' }
+560 verbose addNamed debug@>=2.0.0 <3.0.0
+561 silly addNamed semver.valid null
+562 silly addNamed semver.validRange >=2.0.0 <3.0.0
+563 silly addNameRange { name: 'debug', range: '>=2.0.0 <3.0.0', hasData: false }
+564 silly mapToRegistry name debug
+565 silly mapToRegistry using default registry
+566 silly mapToRegistry registry https://registry.npmjs.org/
+567 silly mapToRegistry uri https://registry.npmjs.org/debug
+568 verbose addNameRange registry:https://registry.npmjs.org/debug not in flight; fetching
+569 verbose get https://registry.npmjs.org/debug not expired, no request
+570 silly addNameRange number 2 { name: 'debug', range: '>=2.0.0 <3.0.0', hasData: true }
+571 silly addNameRange versions [ 'debug',
+571 silly addNameRange   [ '0.0.1',
+571 silly addNameRange     '0.1.0',
+571 silly addNameRange     '0.2.0',
+571 silly addNameRange     '0.3.0',
+571 silly addNameRange     '0.4.0',
+571 silly addNameRange     '0.4.1',
+571 silly addNameRange     '0.5.0',
+571 silly addNameRange     '0.6.0',
+571 silly addNameRange     '0.7.0',
+571 silly addNameRange     '0.7.1',
+571 silly addNameRange     '0.7.2',
+571 silly addNameRange     '0.7.3',
+571 silly addNameRange     '0.7.4',
+571 silly addNameRange     '0.8.0',
+571 silly addNameRange     '0.8.1',
+571 silly addNameRange     '1.0.0',
+571 silly addNameRange     '1.0.1',
+571 silly addNameRange     '1.0.2',
+571 silly addNameRange     '1.0.3',
+571 silly addNameRange     '1.0.4',
+571 silly addNameRange     '2.0.0',
+571 silly addNameRange     '2.1.0',
+571 silly addNameRange     '2.1.1',
+571 silly addNameRange     '2.1.2',
+571 silly addNameRange     '2.1.3',
+571 silly addNameRange     '2.2.0' ] ]
+572 verbose addNamed debug@2.2.0
+573 silly addNamed semver.valid 2.2.0
+574 silly addNamed semver.validRange 2.2.0
+575 silly cache afterAdd debug@2.2.0
+576 verbose afterAdd C:\Users\exhibits\AppData\Roaming\npm-cache\debug\2.2.0\package\package.json not in flight; writing
+577 silly gunzTarPerm extractEntry test/node/log.js
+578 silly gunzTarPerm modified mode [ 'test/node/log.js', 420, 438 ]
+579 silly gunzTarPerm extractEntry test/node/util.js
+580 silly gunzTarPerm modified mode [ 'test/node/util.js', 420, 438 ]
+581 verbose afterAdd C:\Users\exhibits\AppData\Roaming\npm-cache\debug\2.2.0\package\package.json written
+582 silly install resolved [ { name: 'debug',
+582 silly install resolved     version: '2.2.0',
+582 silly install resolved     repository: { type: 'git', url: 'git://github.com/visionmedia/debug.git' },
+582 silly install resolved     description: 'small debugging utility',
+582 silly install resolved     keywords: [ 'debug', 'log', 'debugger' ],
+582 silly install resolved     author: { name: 'TJ Holowaychuk', email: 'tj@vision-media.ca' },
+582 silly install resolved     contributors: [ [Object] ],
+582 silly install resolved     license: 'MIT',
+582 silly install resolved     dependencies: { ms: '0.7.1' },
+582 silly install resolved     devDependencies: { browserify: '9.0.3', mocha: '*' },
+582 silly install resolved     main: './node.js',
+582 silly install resolved     browser: './browser.js',
+582 silly install resolved     component: { scripts: [Object] },
+582 silly install resolved     gitHead: 'b38458422b5aa8aa6d286b10dfe427e8a67e2b35',
+582 silly install resolved     bugs: { url: 'https://github.com/visionmedia/debug/issues' },
+582 silly install resolved     homepage: 'https://github.com/visionmedia/debug',
+582 silly install resolved     _id: 'debug@2.2.0',
+582 silly install resolved     scripts: {},
+582 silly install resolved     _shasum: 'f87057e995b1a1f6ae6a4960664137bc56f039da',
+582 silly install resolved     _from: 'debug@>=2.0.0 <3.0.0',
+582 silly install resolved     _npmVersion: '2.7.4',
+582 silly install resolved     _nodeVersion: '0.12.2',
+582 silly install resolved     _npmUser: { name: 'tootallnate', email: 'nathan@tootallnate.net' },
+582 silly install resolved     maintainers: [ [Object], [Object] ],
+582 silly install resolved     dist:
+582 silly install resolved      { shasum: 'f87057e995b1a1f6ae6a4960664137bc56f039da',
+582 silly install resolved        tarball: 'https://registry.npmjs.org/debug/-/debug-2.2.0.tgz' },
+582 silly install resolved     directories: {},
+582 silly install resolved     _resolved: 'https://registry.npmjs.org/debug/-/debug-2.2.0.tgz',
+582 silly install resolved     readme: 'ERROR: No README data found!' } ]
+583 info install debug@2.2.0 into C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref
+584 info installOne debug@2.2.0
+585 verbose installOne of debug to C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref not in flight; installing
+586 verbose lock using C:\Users\exhibits\AppData\Roaming\npm-cache\_locks\debug-bc9f3a2a522e8430.lock for C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref\node_modules\debug
+587 silly install write writing debug 2.2.0 to C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref\node_modules\debug
+588 silly cache addNamed cb debug@2.2.0
+589 verbose unbuild node_modules\win32ole\node_modules\ref\node_modules\debug
+590 silly gentlyRm C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref\node_modules\debug is being purged from base C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule
+591 verbose gentlyRm don't care about contents; nuking C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref\node_modules\debug
+592 verbose tar unpack C:\Users\exhibits\AppData\Roaming\npm-cache\debug\2.2.0\package.tgz
+593 verbose tar unpacking to C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref\node_modules\debug
+594 silly gentlyRm C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref\node_modules\debug is being purged
+595 verbose gentlyRm don't care about contents; nuking C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref\node_modules\debug
+596 silly gunzTarPerm modes [ '777', '666' ]
+597 silly gunzTarPerm extractEntry package.json
+598 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+599 silly gunzTarPerm extractEntry .npmignore
+600 silly gunzTarPerm modified mode [ '.npmignore', 420, 438 ]
+601 silly gunzTarPerm extractEntry node.js
+602 silly gunzTarPerm modified mode [ 'node.js', 420, 438 ]
+603 silly gunzTarPerm extractEntry debug.js
+604 silly gunzTarPerm modified mode [ 'debug.js', 420, 438 ]
+605 silly gunzTarPerm extractEntry browser.js
+606 silly gunzTarPerm modified mode [ 'browser.js', 420, 438 ]
+607 silly gunzTarPerm extractEntry Readme.md
+608 silly gunzTarPerm modified mode [ 'Readme.md', 420, 438 ]
+609 silly gunzTarPerm extractEntry bower.json
+610 silly gunzTarPerm modified mode [ 'bower.json', 420, 438 ]
+611 silly gunzTarPerm extractEntry .jshintrc
+612 silly gunzTarPerm modified mode [ '.jshintrc', 420, 438 ]
+613 silly gunzTarPerm extractEntry component.json
+614 silly gunzTarPerm modified mode [ 'component.json', 420, 438 ]
+615 silly gunzTarPerm extractEntry Makefile
+616 silly gunzTarPerm modified mode [ 'Makefile', 420, 438 ]
+617 silly gunzTarPerm extractEntry History.md
+618 silly gunzTarPerm modified mode [ 'History.md', 420, 438 ]
+619 info preinstall util@0.10.3
+620 silly prepareForInstallMany adding inherits@2.0.1 from util dependencies
+621 silly cache add args [ 'inherits@2.0.1', null ]
+622 verbose cache add spec inherits@2.0.1
+623 silly cache add parsed spec { raw: 'inherits@2.0.1',
+623 silly cache add   scope: null,
+623 silly cache add   name: 'inherits',
+623 silly cache add   rawSpec: '2.0.1',
+623 silly cache add   spec: '2.0.1',
+623 silly cache add   type: 'version' }
+624 verbose addNamed inherits@2.0.1
+625 silly addNamed semver.valid 2.0.1
+626 silly addNamed semver.validRange 2.0.1
+627 silly mapToRegistry name inherits
+628 silly mapToRegistry using default registry
+629 silly mapToRegistry registry https://registry.npmjs.org/
+630 silly mapToRegistry uri https://registry.npmjs.org/inherits
+631 verbose addNameVersion registry:https://registry.npmjs.org/inherits not in flight; fetching
+632 verbose request uri https://registry.npmjs.org/inherits
+633 verbose request no auth needed
+634 info attempt registry request try #1 at 6:06:00 AM
+635 verbose etag "9C23BNETE30UZVYRVML0QUTBX"
+636 http request GET https://registry.npmjs.org/inherits
+637 info preinstall debug@2.2.0
+638 silly prepareForInstallMany adding ms@0.7.1 from debug dependencies
+639 silly cache add args [ 'ms@0.7.1', null ]
+640 verbose cache add spec ms@0.7.1
+641 silly cache add parsed spec { raw: 'ms@0.7.1',
+641 silly cache add   scope: null,
+641 silly cache add   name: 'ms',
+641 silly cache add   rawSpec: '0.7.1',
+641 silly cache add   spec: '0.7.1',
+641 silly cache add   type: 'version' }
+642 verbose addNamed ms@0.7.1
+643 silly addNamed semver.valid 0.7.1
+644 silly addNamed semver.validRange 0.7.1
+645 silly mapToRegistry name ms
+646 silly mapToRegistry using default registry
+647 silly mapToRegistry registry https://registry.npmjs.org/
+648 silly mapToRegistry uri https://registry.npmjs.org/ms
+649 verbose addNameVersion registry:https://registry.npmjs.org/ms already in flight; waiting
+650 http 304 https://registry.npmjs.org/ms
+651 silly get cb [ 304,
+651 silly get   { date: 'Wed, 08 Jun 2016 13:05:50 GMT',
+651 silly get     via: '1.1 varnish',
+651 silly get     'cache-control': 'max-age=300',
+651 silly get     etag: '"5143492BBX5I18XHV9RBWJ2GY"',
+651 silly get     age: '29',
+651 silly get     connection: 'keep-alive',
+651 silly get     'x-served-by': 'cache-dfw1827-DFW',
+651 silly get     'x-cache': 'HIT',
+651 silly get     'x-cache-hits': '2',
+651 silly get     'x-timer': 'S1465391150.516980,VS0,VE0',
+651 silly get     vary: 'Accept-Encoding' } ]
+652 verbose etag https://registry.npmjs.org/ms from cache
+653 verbose get saving ms to C:\Users\exhibits\AppData\Roaming\npm-cache\registry.npmjs.org\ms\.cache.json
+654 silly cache afterAdd ms@0.7.1
+655 verbose afterAdd C:\Users\exhibits\AppData\Roaming\npm-cache\ms\0.7.1\package\package.json not in flight; writing
+656 silly cache afterAdd ms@0.7.1
+657 verbose afterAdd C:\Users\exhibits\AppData\Roaming\npm-cache\ms\0.7.1\package\package.json already in flight; not writing
+658 verbose afterAdd C:\Users\exhibits\AppData\Roaming\npm-cache\ms\0.7.1\package\package.json written
+659 silly install resolved [ { name: 'ms',
+659 silly install resolved     version: '0.7.1',
+659 silly install resolved     description: 'Tiny ms conversion utility',
+659 silly install resolved     repository: { type: 'git', url: 'git://github.com/guille/ms.js.git' },
+659 silly install resolved     main: './index',
+659 silly install resolved     devDependencies: { mocha: '*', 'expect.js': '*', serve: '*' },
+659 silly install resolved     component: { scripts: [Object] },
+659 silly install resolved     gitHead: '713dcf26d9e6fd9dbc95affe7eff9783b7f1b909',
+659 silly install resolved     bugs: { url: 'https://github.com/guille/ms.js/issues' },
+659 silly install resolved     homepage: 'https://github.com/guille/ms.js',
+659 silly install resolved     _id: 'ms@0.7.1',
+659 silly install resolved     scripts: {},
+659 silly install resolved     _shasum: '9cd13c03adbff25b65effde7ce864ee952017098',
+659 silly install resolved     _from: 'ms@0.7.1',
+659 silly install resolved     _npmVersion: '2.7.5',
+659 silly install resolved     _nodeVersion: '0.12.2',
+659 silly install resolved     _npmUser: { name: 'rauchg', email: 'rauchg@gmail.com' },
+659 silly install resolved     maintainers: [ [Object] ],
+659 silly install resolved     dist:
+659 silly install resolved      { shasum: '9cd13c03adbff25b65effde7ce864ee952017098',
+659 silly install resolved        tarball: 'https://registry.npmjs.org/ms/-/ms-0.7.1.tgz' },
+659 silly install resolved     directories: {},
+659 silly install resolved     _resolved: 'https://registry.npmjs.org/ms/-/ms-0.7.1.tgz',
+659 silly install resolved     readme: 'ERROR: No README data found!' } ]
+660 info install ms@0.7.1 into C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref-struct\node_modules\debug
+661 info installOne ms@0.7.1
+662 verbose installOne of ms to C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref-struct\node_modules\debug not in flight; installing
+663 silly install resolved [ { name: 'ms',
+663 silly install resolved     version: '0.7.1',
+663 silly install resolved     description: 'Tiny ms conversion utility',
+663 silly install resolved     repository: { type: 'git', url: 'git://github.com/guille/ms.js.git' },
+663 silly install resolved     main: './index',
+663 silly install resolved     devDependencies: { mocha: '*', 'expect.js': '*', serve: '*' },
+663 silly install resolved     component: { scripts: [Object] },
+663 silly install resolved     gitHead: '713dcf26d9e6fd9dbc95affe7eff9783b7f1b909',
+663 silly install resolved     bugs: { url: 'https://github.com/guille/ms.js/issues' },
+663 silly install resolved     homepage: 'https://github.com/guille/ms.js',
+663 silly install resolved     _id: 'ms@0.7.1',
+663 silly install resolved     scripts: {},
+663 silly install resolved     _shasum: '9cd13c03adbff25b65effde7ce864ee952017098',
+663 silly install resolved     _from: 'ms@0.7.1',
+663 silly install resolved     _npmVersion: '2.7.5',
+663 silly install resolved     _nodeVersion: '0.12.2',
+663 silly install resolved     _npmUser: { name: 'rauchg', email: 'rauchg@gmail.com' },
+663 silly install resolved     maintainers: [ [Object] ],
+663 silly install resolved     dist:
+663 silly install resolved      { shasum: '9cd13c03adbff25b65effde7ce864ee952017098',
+663 silly install resolved        tarball: 'https://registry.npmjs.org/ms/-/ms-0.7.1.tgz' },
+663 silly install resolved     directories: {},
+663 silly install resolved     _resolved: 'https://registry.npmjs.org/ms/-/ms-0.7.1.tgz',
+663 silly install resolved     readme: 'ERROR: No README data found!' } ]
+664 info install ms@0.7.1 into C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref\node_modules\debug
+665 info installOne ms@0.7.1
+666 verbose installOne of ms to C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref\node_modules\debug not in flight; installing
+667 verbose lock using C:\Users\exhibits\AppData\Roaming\npm-cache\_locks\ms-85ba58c72fcf090c.lock for C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref-struct\node_modules\debug\node_modules\ms
+668 verbose lock using C:\Users\exhibits\AppData\Roaming\npm-cache\_locks\ms-66a51e3b62ba3a67.lock for C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref\node_modules\debug\node_modules\ms
+669 silly install write writing ms 0.7.1 to C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref-struct\node_modules\debug\node_modules\ms
+670 silly cache addNamed cb ms@0.7.1
+671 verbose unbuild node_modules\win32ole\node_modules\ref-struct\node_modules\debug\node_modules\ms
+672 silly install write writing ms 0.7.1 to C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref\node_modules\debug\node_modules\ms
+673 silly cache addNamed cb ms@0.7.1
+674 verbose unbuild node_modules\win32ole\node_modules\ref\node_modules\debug\node_modules\ms
+675 silly gentlyRm C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref-struct\node_modules\debug\node_modules\ms is being purged from base C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule
+676 verbose gentlyRm don't care about contents; nuking C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref-struct\node_modules\debug\node_modules\ms
+677 silly gentlyRm C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref\node_modules\debug\node_modules\ms is being purged from base C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule
+678 verbose gentlyRm don't care about contents; nuking C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref\node_modules\debug\node_modules\ms
+679 verbose tar unpack C:\Users\exhibits\AppData\Roaming\npm-cache\ms\0.7.1\package.tgz
+680 verbose tar unpacking to C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref-struct\node_modules\debug\node_modules\ms
+681 silly gentlyRm C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref-struct\node_modules\debug\node_modules\ms is being purged
+682 verbose gentlyRm don't care about contents; nuking C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref-struct\node_modules\debug\node_modules\ms
+683 verbose tar unpack C:\Users\exhibits\AppData\Roaming\npm-cache\ms\0.7.1\package.tgz
+684 verbose tar unpacking to C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref\node_modules\debug\node_modules\ms
+685 silly gentlyRm C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref\node_modules\debug\node_modules\ms is being purged
+686 verbose gentlyRm don't care about contents; nuking C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref\node_modules\debug\node_modules\ms
+687 silly gunzTarPerm modes [ '777', '666' ]
+688 silly gunzTarPerm modes [ '777', '666' ]
+689 silly gunzTarPerm extractEntry package.json
+690 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+691 silly gunzTarPerm extractEntry package.json
+692 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+693 silly gunzTarPerm extractEntry .npmignore
+694 silly gunzTarPerm modified mode [ '.npmignore', 420, 438 ]
+695 silly gunzTarPerm extractEntry README.md
+696 silly gunzTarPerm modified mode [ 'README.md', 420, 438 ]
+697 silly gunzTarPerm extractEntry .npmignore
+698 silly gunzTarPerm modified mode [ '.npmignore', 420, 438 ]
+699 silly gunzTarPerm extractEntry README.md
+700 silly gunzTarPerm modified mode [ 'README.md', 420, 438 ]
+701 silly gunzTarPerm extractEntry LICENSE
+702 silly gunzTarPerm modified mode [ 'LICENSE', 420, 438 ]
+703 silly gunzTarPerm extractEntry index.js
+704 silly gunzTarPerm modified mode [ 'index.js', 420, 438 ]
+705 silly gunzTarPerm extractEntry LICENSE
+706 silly gunzTarPerm modified mode [ 'LICENSE', 420, 438 ]
+707 silly gunzTarPerm extractEntry index.js
+708 silly gunzTarPerm modified mode [ 'index.js', 420, 438 ]
+709 silly gunzTarPerm extractEntry History.md
+710 silly gunzTarPerm modified mode [ 'History.md', 420, 438 ]
+711 silly gunzTarPerm extractEntry History.md
+712 silly gunzTarPerm modified mode [ 'History.md', 420, 438 ]
+713 info preinstall ms@0.7.1
+714 silly install resolved []
+715 verbose about to build C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref\node_modules\debug\node_modules\ms
+716 info build C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref\node_modules\debug\node_modules\ms
+717 verbose linkStuff [ false,
+717 verbose linkStuff   false,
+717 verbose linkStuff   false,
+717 verbose linkStuff   'C:\\Users\\exhibits\\Documents\\nodePrograms\\FlirNodeModule\\node_modules\\win32ole\\node_modules\\ref\\node_modules\\debug\\node_modules' ]
+718 info linkStuff ms@0.7.1
+719 verbose linkBins ms@0.7.1
+720 verbose linkMans ms@0.7.1
+721 verbose rebuildBundles ms@0.7.1
+722 info preinstall ms@0.7.1
+723 info install ms@0.7.1
+724 info postinstall ms@0.7.1
+725 silly install resolved []
+726 verbose about to build C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref-struct\node_modules\debug\node_modules\ms
+727 info build C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref-struct\node_modules\debug\node_modules\ms
+728 verbose linkStuff [ false,
+728 verbose linkStuff   false,
+728 verbose linkStuff   false,
+728 verbose linkStuff   'C:\\Users\\exhibits\\Documents\\nodePrograms\\FlirNodeModule\\node_modules\\win32ole\\node_modules\\ref-struct\\node_modules\\debug\\node_modules' ]
+729 info linkStuff ms@0.7.1
+730 verbose linkBins ms@0.7.1
+731 verbose linkMans ms@0.7.1
+732 verbose rebuildBundles ms@0.7.1
+733 info install ms@0.7.1
+734 verbose unlock done using C:\Users\exhibits\AppData\Roaming\npm-cache\_locks\ms-66a51e3b62ba3a67.lock for C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref\node_modules\debug\node_modules\ms
+735 verbose about to build C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref\node_modules\debug
+736 info build C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref\node_modules\debug
+737 verbose linkStuff [ false,
+737 verbose linkStuff   false,
+737 verbose linkStuff   false,
+737 verbose linkStuff   'C:\\Users\\exhibits\\Documents\\nodePrograms\\FlirNodeModule\\node_modules\\win32ole\\node_modules\\ref\\node_modules' ]
+738 info linkStuff debug@2.2.0
+739 verbose linkBins debug@2.2.0
+740 verbose linkMans debug@2.2.0
+741 verbose rebuildBundles debug@2.2.0
+742 verbose rebuildBundles [ 'ms' ]
+743 info install debug@2.2.0
+744 info postinstall ms@0.7.1
+745 info postinstall debug@2.2.0
+746 verbose unlock done using C:\Users\exhibits\AppData\Roaming\npm-cache\_locks\ms-85ba58c72fcf090c.lock for C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref-struct\node_modules\debug\node_modules\ms
+747 verbose about to build C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref-struct\node_modules\debug
+748 info build C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref-struct\node_modules\debug
+749 verbose linkStuff [ false,
+749 verbose linkStuff   false,
+749 verbose linkStuff   false,
+749 verbose linkStuff   'C:\\Users\\exhibits\\Documents\\nodePrograms\\FlirNodeModule\\node_modules\\win32ole\\node_modules\\ref-struct\\node_modules' ]
+750 info linkStuff debug@2.2.0
+751 verbose linkBins debug@2.2.0
+752 verbose linkMans debug@2.2.0
+753 verbose rebuildBundles debug@2.2.0
+754 verbose rebuildBundles [ 'ms' ]
+755 info install debug@2.2.0
+756 verbose unlock done using C:\Users\exhibits\AppData\Roaming\npm-cache\_locks\debug-bc9f3a2a522e8430.lock for C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref\node_modules\debug
+757 verbose about to build C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref
+758 info build C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref
+759 verbose linkStuff [ false,
+759 verbose linkStuff   false,
+759 verbose linkStuff   false,
+759 verbose linkStuff   'C:\\Users\\exhibits\\Documents\\nodePrograms\\FlirNodeModule\\node_modules\\win32ole\\node_modules' ]
+760 info linkStuff ref@1.3.2
+761 verbose linkBins ref@1.3.2
+762 verbose linkMans ref@1.3.2
+763 verbose rebuildBundles ref@1.3.2
+764 verbose rebuildBundles [ 'debug' ]
+765 info install ref@1.3.2
+766 info postinstall debug@2.2.0
+767 verbose unsafe-perm in lifecycle true
+768 verbose unlock done using C:\Users\exhibits\AppData\Roaming\npm-cache\_locks\debug-c2ad198d4956a727.lock for C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref-struct\node_modules\debug
+769 verbose about to build C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref-struct
+770 info build C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref-struct
+771 verbose linkStuff [ false,
+771 verbose linkStuff   false,
+771 verbose linkStuff   false,
+771 verbose linkStuff   'C:\\Users\\exhibits\\Documents\\nodePrograms\\FlirNodeModule\\node_modules\\win32ole\\node_modules' ]
+772 info linkStuff ref-struct@1.0.2
+773 verbose linkBins ref-struct@1.0.2
+774 verbose linkMans ref-struct@1.0.2
+775 verbose rebuildBundles ref-struct@1.0.2
+776 http 200 https://registry.npmjs.org/inherits
+777 silly get cb [ 200,
+777 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+777 silly get     etag: '"EOBG0JNCA5JRSD7Y6R8D0P0FC"',
+777 silly get     'content-type': 'application/json',
+777 silly get     'content-encoding': 'gzip',
+777 silly get     'cache-control': 'max-age=300',
+777 silly get     'content-length': '2370',
+777 silly get     'accept-ranges': 'bytes',
+777 silly get     date: 'Wed, 08 Jun 2016 13:05:50 GMT',
+777 silly get     via: '1.1 varnish',
+777 silly get     age: '138',
+777 silly get     connection: 'keep-alive',
+777 silly get     'x-served-by': 'cache-dfw1820-DFW',
+777 silly get     'x-cache': 'HIT',
+777 silly get     'x-cache-hits': '4',
+777 silly get     'x-timer': 'S1465391150.584713,VS0,VE0',
+777 silly get     vary: 'Accept-Encoding' } ]
+778 verbose get saving inherits to C:\Users\exhibits\AppData\Roaming\npm-cache\registry.npmjs.org\inherits\.cache.json
+779 verbose rebuildBundles [ 'debug' ]
+780 info install ref-struct@1.0.2
+781 info postinstall ref-struct@1.0.2
+782 verbose unlock done using C:\Users\exhibits\AppData\Roaming\npm-cache\_locks\ref-struct-25eb812d735ac69c.lock for C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref-struct
+783 silly mapToRegistry name inherits
+784 silly mapToRegistry using default registry
+785 silly mapToRegistry registry https://registry.npmjs.org/
+786 silly mapToRegistry uri https://registry.npmjs.org/inherits
+787 verbose addRemoteTarball https://registry.npmjs.org/inherits/-/inherits-2.0.1.tgz not in flight; adding
+788 verbose addRemoteTarball [ 'https://registry.npmjs.org/inherits/-/inherits-2.0.1.tgz',
+788 verbose addRemoteTarball   'b17d08d326b4423e568eff719f91b0b1cbdf69f1' ]
+789 info retry fetch attempt 1 at 6:06:00 AM
+790 info attempt registry request try #1 at 6:06:00 AM
+791 http fetch GET https://registry.npmjs.org/inherits/-/inherits-2.0.1.tgz
+792 http fetch 200 https://registry.npmjs.org/inherits/-/inherits-2.0.1.tgz
+793 silly fetchAndShaCheck shasum b17d08d326b4423e568eff719f91b0b1cbdf69f1
+794 verbose addTmpTarball C:\Users\exhibits\AppData\Local\Temp\npm-8252-ad130631\registry.npmjs.org\inherits\-\inherits-2.0.1.tgz not in flight; adding
+795 verbose addTmpTarball already have metadata; skipping unpack for inherits@2.0.1
+796 silly cache afterAdd inherits@2.0.1
+797 verbose afterAdd C:\Users\exhibits\AppData\Roaming\npm-cache\inherits\2.0.1\package\package.json not in flight; writing
+798 verbose afterAdd C:\Users\exhibits\AppData\Roaming\npm-cache\inherits\2.0.1\package\package.json written
+799 silly install resolved [ { name: 'inherits',
+799 silly install resolved     description: 'Browser-friendly inheritance fully compatible with standard node.js inherits()',
+799 silly install resolved     version: '2.0.1',
+799 silly install resolved     keywords:
+799 silly install resolved      [ 'inheritance',
+799 silly install resolved        'class',
+799 silly install resolved        'klass',
+799 silly install resolved        'oop',
+799 silly install resolved        'object-oriented',
+799 silly install resolved        'inherits',
+799 silly install resolved        'browser',
+799 silly install resolved        'browserify' ],
+799 silly install resolved     main: './inherits.js',
+799 silly install resolved     browser: './inherits_browser.js',
+799 silly install resolved     repository: { type: 'git', url: 'git://github.com/isaacs/inherits' },
+799 silly install resolved     license: 'ISC',
+799 silly install resolved     scripts: { test: 'node test' },
+799 silly install resolved     bugs: { url: 'https://github.com/isaacs/inherits/issues' },
+799 silly install resolved     _id: 'inherits@2.0.1',
+799 silly install resolved     dist:
+799 silly install resolved      { shasum: 'b17d08d326b4423e568eff719f91b0b1cbdf69f1',
+799 silly install resolved        tarball: 'https://registry.npmjs.org/inherits/-/inherits-2.0.1.tgz' },
+799 silly install resolved     _from: 'inherits@2.0.1',
+799 silly install resolved     _npmVersion: '1.3.8',
+799 silly install resolved     _npmUser: { name: 'isaacs', email: 'i@izs.me' },
+799 silly install resolved     maintainers: [ [Object] ],
+799 silly install resolved     directories: {},
+799 silly install resolved     _shasum: 'b17d08d326b4423e568eff719f91b0b1cbdf69f1',
+799 silly install resolved     _resolved: 'https://registry.npmjs.org/inherits/-/inherits-2.0.1.tgz' } ]
+800 info install inherits@2.0.1 into C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\assert\node_modules\util
+801 info installOne inherits@2.0.1
+802 verbose installOne of inherits to C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\assert\node_modules\util not in flight; installing
+803 verbose lock using C:\Users\exhibits\AppData\Roaming\npm-cache\_locks\inherits-6c2d1cbb6f93f726.lock for C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\assert\node_modules\util\node_modules\inherits
+804 silly install write writing inherits 2.0.1 to C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\assert\node_modules\util\node_modules\inherits
+805 silly cache addNamed cb inherits@2.0.1
+806 verbose unbuild node_modules\win32ole\node_modules\assert\node_modules\util\node_modules\inherits
+807 silly gentlyRm C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\assert\node_modules\util\node_modules\inherits is being purged from base C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule
+808 verbose gentlyRm don't care about contents; nuking C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\assert\node_modules\util\node_modules\inherits
+809 verbose tar unpack C:\Users\exhibits\AppData\Roaming\npm-cache\inherits\2.0.1\package.tgz
+810 verbose tar unpacking to C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\assert\node_modules\util\node_modules\inherits
+811 silly gentlyRm C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\assert\node_modules\util\node_modules\inherits is being purged
+812 verbose gentlyRm don't care about contents; nuking C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\assert\node_modules\util\node_modules\inherits
+813 silly gunzTarPerm modes [ '777', '666' ]
+814 silly gunzTarPerm extractEntry package.json
+815 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+816 silly gunzTarPerm extractEntry README.md
+817 silly gunzTarPerm modified mode [ 'README.md', 420, 438 ]
+818 silly gunzTarPerm extractEntry LICENSE
+819 silly gunzTarPerm modified mode [ 'LICENSE', 420, 438 ]
+820 silly gunzTarPerm extractEntry inherits.js
+821 silly gunzTarPerm modified mode [ 'inherits.js', 420, 438 ]
+822 silly gunzTarPerm extractEntry inherits_browser.js
+823 silly gunzTarPerm modified mode [ 'inherits_browser.js', 420, 438 ]
+824 silly gunzTarPerm extractEntry test.js
+825 silly gunzTarPerm modified mode [ 'test.js', 420, 438 ]
+826 info preinstall inherits@2.0.1
+827 silly install resolved []
+828 verbose about to build C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\assert\node_modules\util\node_modules\inherits
+829 info build C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\assert\node_modules\util\node_modules\inherits
+830 verbose linkStuff [ false,
+830 verbose linkStuff   false,
+830 verbose linkStuff   false,
+830 verbose linkStuff   'C:\\Users\\exhibits\\Documents\\nodePrograms\\FlirNodeModule\\node_modules\\win32ole\\node_modules\\assert\\node_modules\\util\\node_modules' ]
+831 info linkStuff inherits@2.0.1
+832 verbose linkBins inherits@2.0.1
+833 verbose linkMans inherits@2.0.1
+834 verbose rebuildBundles inherits@2.0.1
+835 info install inherits@2.0.1
+836 info postinstall inherits@2.0.1
+837 verbose unlock done using C:\Users\exhibits\AppData\Roaming\npm-cache\_locks\inherits-6c2d1cbb6f93f726.lock for C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\assert\node_modules\util\node_modules\inherits
+838 verbose about to build C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\assert\node_modules\util
+839 info build C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\assert\node_modules\util
+840 verbose linkStuff [ false,
+840 verbose linkStuff   false,
+840 verbose linkStuff   false,
+840 verbose linkStuff   'C:\\Users\\exhibits\\Documents\\nodePrograms\\FlirNodeModule\\node_modules\\win32ole\\node_modules\\assert\\node_modules' ]
+841 info linkStuff util@0.10.3
+842 verbose linkBins util@0.10.3
+843 verbose linkMans util@0.10.3
+844 verbose rebuildBundles util@0.10.3
+845 verbose rebuildBundles [ 'inherits' ]
+846 info install util@0.10.3
+847 info postinstall util@0.10.3
+848 verbose unlock done using C:\Users\exhibits\AppData\Roaming\npm-cache\_locks\util-c61ed4427f246926.lock for C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\assert\node_modules\util
+849 verbose about to build C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\assert
+850 info build C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\assert
+851 verbose linkStuff [ false,
+851 verbose linkStuff   false,
+851 verbose linkStuff   false,
+851 verbose linkStuff   'C:\\Users\\exhibits\\Documents\\nodePrograms\\FlirNodeModule\\node_modules\\win32ole\\node_modules' ]
+852 info linkStuff assert@1.4.1
+853 verbose linkBins assert@1.4.1
+854 verbose linkMans assert@1.4.1
+855 verbose rebuildBundles assert@1.4.1
+856 verbose rebuildBundles [ 'util' ]
+857 info install assert@1.4.1
+858 info postinstall assert@1.4.1
+859 verbose unlock done using C:\Users\exhibits\AppData\Roaming\npm-cache\_locks\assert-f2a1c5ef6301fa29.lock for C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\assert
+860 info ref@1.3.2 Failed to exec install script
+861 verbose unlock done using C:\Users\exhibits\AppData\Roaming\npm-cache\_locks\ref-fa9a800bb36feb24.lock for C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref
+862 verbose about to build C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole
+863 verbose unlock done using C:\Users\exhibits\AppData\Roaming\npm-cache\_locks\win32ole-1f589d57962f137d.lock for C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole
+864 verbose stack Error: ref@1.3.2 install: `node-gyp rebuild`
+864 verbose stack Exit status 1
+864 verbose stack     at EventEmitter.<anonymous> (C:\Program Files (x86)\nodejs\node_modules\npm\lib\utils\lifecycle.js:213:16)
+864 verbose stack     at EventEmitter.emit (events.js:110:17)
+864 verbose stack     at ChildProcess.<anonymous> (C:\Program Files (x86)\nodejs\node_modules\npm\lib\utils\spawn.js:14:12)
+864 verbose stack     at ChildProcess.emit (events.js:110:17)
+864 verbose stack     at maybeClose (child_process.js:1015:16)
+864 verbose stack     at Process.ChildProcess._handle.onexit (child_process.js:1087:5)
+865 verbose pkgid ref@1.3.2
+866 verbose cwd C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule
+867 error Windows_NT 6.3.9600
+868 error argv "C:\\Program Files (x86)\\nodejs\\\\node.exe" "C:\\Program Files (x86)\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "win32ole"
+869 error node v0.12.2
+870 error npm  v2.7.4
+871 error code ELIFECYCLE
+872 error ref@1.3.2 install: `node-gyp rebuild`
+872 error Exit status 1
+873 error Failed at the ref@1.3.2 install script 'node-gyp rebuild'.
+873 error This is most likely a problem with the ref package,
+873 error not with npm itself.
+873 error Tell the author that this fails on your system:
+873 error     node-gyp rebuild
+873 error You can get their info via:
+873 error     npm owner ls ref
+873 error There is likely additional logging output above.
+874 verbose exit [ 1, true ]
+875 verbose unbuild node_modules\win32ole\node_modules\ref
+876 info preuninstall ref@1.3.2
+877 info uninstall ref@1.3.2
+878 verbose unbuild rmStuff ref@1.3.2 from C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules
+879 verbose unbuild rmStuff in C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules
+880 info postuninstall ref@1.3.2
+881 silly gentlyRm C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref is being purged from base C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule
+882 verbose gentlyRm don't care about contents; nuking C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref
+883 silly vacuum-fs purging C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules\ref
+884 silly vacuum-fs quitting because other entries in C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole\node_modules
+885 verbose unbuild node_modules\win32ole
+886 info preuninstall win32ole@0.1.3
+887 info uninstall win32ole@0.1.3
+888 verbose unbuild rmStuff win32ole@0.1.3 from C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules
+889 info postuninstall win32ole@0.1.3
+890 silly gentlyRm C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole is being purged from base C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule
+891 verbose gentlyRm don't care about contents; nuking C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole
+892 silly vacuum-fs purging C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules\win32ole
+893 silly vacuum-fs quitting because other entries in C:\Users\exhibits\Documents\nodePrograms\FlirNodeModule\node_modules

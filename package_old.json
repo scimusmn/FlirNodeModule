@@ -1,0 +1,12 @@
+{
+  "name": "object_wrap",
+  "version": "0.0.0",
+  "description": "Wrapper for Vieworks camera API",
+  "main": "vieworks.js",
+  "private": true,
+  "gypfile": true,
+  "dependencies": {
+    "bindings": "~1.2.1",
+    "nan": "^2.0.0"
+  }
+}

@@ -1,0 +1,125 @@
+body {
+	background-color: #000000;
+	width: 1630px;
+	height: 1000px;
+}
+
+.mainTable {
+	overflow: hidden;
+}
+
+.content-container {
+	width:600px;
+	text-align: center;
+}
+
+#visitor-caps{
+	width:600px;
+	text-align: center;
+	height: 100%;
+}
+
+#celeb-caps{
+	width:600px;
+	text-align: center;
+	height: 100%;
+}
+
+.slider-handle {
+	position:absolute;
+	height:55px;
+	width:55px;
+}
+
+.controls {
+	position: relative;
+	display: inline-block;
+	text-align: center;
+	margin: 0 auto;
+	padding-left:10px;
+	padding-top: 40px;
+	width: 100%;
+}
+
+.button {
+	display:inline-block;
+}
+
+.slider-background{
+	position:relative;
+	display:inline-block;
+	background:url(assets/pngs/horzScrollBed.png) no-repeat center center;
+	text-align: left;
+	margin: 0 auto;
+	height: 55px;
+}
+
+#celebThumbSlider{
+	position:relative;
+	display:inline-block;
+	background:url(assets/pngs/vertScrollBed.png) no-repeat center center;
+	text-align: left;
+	margin: 0 auto;
+	width: 55px;
+	height: 650px;
+}
+
+#celebThumbs > thumb-nail {
+	width: 100%;
+	height:25%;
+}
+
+#thumbs > thumb-nail {
+	width: 14%;
+	height:33%;
+}
+
+thumb-nail {
+	display: inline-block;
+	text-align: center;
+}
+
+thumb-nail > img {
+	display: inline-block;
+	border: 5px solid #cccccc;
+}
+
+.thumbSelect > img {
+	border: 5px solid #cccc00;
+}
+
+.thumbnail {
+	border: 5px solid #cccccc;
+}
+
+table{
+	width: 100%;
+}
+
+.select table{
+	table-layout: fixed;
+}
+
+tr{
+
+}
+
+td{
+	padding-top:20px;
+	vertical-align: middle;
+	height: 100%;
+}
+
+#thumbs tr{
+	text-align: center;
+}
+
+#thumbs td{
+	padding-top:65px;
+	text-align: center;
+}
+
+#celebThumbs>div{
+	height: 700px;
+	overflow-y: hidden;
+}
