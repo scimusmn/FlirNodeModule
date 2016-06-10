@@ -1,4 +1,6 @@
 // camera.h
+#ifndef CAMERA_H
+#define CAMERA_H
 
 // Event codes
 #define EV_DEVICE_READY					1 // Not used
@@ -64,8 +66,8 @@
 
 // Camera type codes (used in Connect) and property PROP_CAMERA_TYPE
 #define CAM_500             0
-#define CAM_900             1  
-#define CAM_THV1000         2  
+#define CAM_900             1
+#define CAM_THV1000         2
 #define CAM_SC1000          3
 #define CAM_THERMACAM       4
 #define CAM_THERMOVISION    5
@@ -96,11 +98,11 @@
 #define TRIG_SRC_NONE		3 // Source is not defined
 
 // Camera file formats
-#define CAM_FMT_JPEG		0	// JPEG and non-compressed IR pixel data 
-#define CAM_FMT_JPEG_PNG	1	// JPEG and PNG-compressed IR pixel data 
-#define CAM_FMT_JPEG_ONLY	2	// JPEG without IR data 
-#define CAM_FMT_FFF			3	// Only IR (pixel data not compressed) 
-#define CAM_FMT_FFF_PNG		4	// Only IR (pixel data is PNG-compressed) 
+#define CAM_FMT_JPEG		0	// JPEG and non-compressed IR pixel data
+#define CAM_FMT_JPEG_PNG	1	// JPEG and PNG-compressed IR pixel data
+#define CAM_FMT_JPEG_ONLY	2	// JPEG without IR data
+#define CAM_FMT_FFF			3	// Only IR (pixel data not compressed)
+#define CAM_FMT_FFF_PNG		4	// Only IR (pixel data is PNG-compressed)
 
 // Image correction modes
 #define IMAGE_CORR_DISABLED		0 // Image correction disabled
@@ -108,7 +110,7 @@
 #define IMAGE_CORR_DISTANCE		2 // Use image distance correction map
 
 // Camera property codes
-enum { 
+enum {
 	PROP_TRFL = 0,				// Reflected Temperature (in Kelvin)
 	PROP_TATM = 1,				// Atmospheric Temperature (in Kelvin)
 	PROP_DOBJ = 2,				// Object Distance (in Meter)
@@ -123,7 +125,7 @@ enum {
     PROP_DUNIT = 11,			// Presentation Distance Unit
     PROP_RANGE = 12,			// Measurement Range
     PROP_FOCUS = 13,			// Focus State (far/near/stop)
-    PROP_FOCUS_POS = 14,		// Focus Position 
+    PROP_FOCUS_POS = 14,		// Focus Position
 	PROP_COOLER = 15,			// Cooler State (on/off/standby/cooling)
 	PROP_BATTERY = 16,			// Battery State
 	PROP_PALETTE = 17,			// Camera palette
@@ -179,7 +181,7 @@ enum {
 	PROP_CAMERA_STATUS = 69,	// Camera status
 	PROP_VIEWER = 70,			// Image viewer (off=0, on=1, show_property_page=2)
 	PROP_IMAGE_MODE = 71,		// 16-bit image mode (1=temperature 0=signal (default))
-	PROP_MULTICAST = 72,		// 0=Use unicast 1=Use multicast connection (device type 4 and 6) 
+	PROP_MULTICAST = 72,		// 0=Use unicast 1=Use multicast connection (device type 4 and 6)
 	PROP_LINE_CORR = 73,		// 0=No line corr. 1=Enable line corr. (only THV 1000)
 	PROP_TRANSFER = 74,			// 0=No transfer 1=Transfer L&S and object pars. to camera
 	PROP_FRAME_RATE_LIST = 75,	// List of available frame rates
@@ -244,3 +246,5 @@ enum CAMSTATUS
 #define IS_EMISS_STRADDLE_ERR	27		// Known and shown values are on different sides of reflected temperature
 #define IS_NOT_SUPPORTED		28
 #define IS_ILLEGAL_PARAMETER	29
+
+#endif

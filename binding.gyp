@@ -5,7 +5,7 @@
   "targets": [
     {
       "target_name": "flir",
-      "sources": ["inits.cc","flirCam.cc" ],
+      "sources": ["inits.cc","vendor/flir/lvcam.cpp","flirCam.cc" ],
       "libraries": [],
       "include_dirs": [
         "<!(node -e \"require('nan')\")",

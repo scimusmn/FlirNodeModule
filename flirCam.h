@@ -28,7 +28,9 @@ class flirCam : public Nan::ObjectWrap {
  public:
   static void Init(v8::Local<v8::Object> exports);
   void setDefaults();
+  void createControl();
   void allocate();
+  bool status();
   void open();
 
  private:
@@ -38,11 +40,12 @@ class flirCam : public Nan::ObjectWrap {
 
    //_DLVCamPtr camera;
    UINT width,height,bufferSize,numStored;
-   bool bReady,bCapturing;
+   bool ready,bCapturing;
+   WORD lowVal, span;
 
    Nan::Persistent<v8::Function> cb;
 
-  explicit flirCam(double value = 0);
+  explicit flirCam();
   ~flirCam();
 
   static void begin(const Nan::FunctionCallbackInfo<v8::Value>& info);
@@ -53,7 +56,17 @@ class flirCam : public Nan::ObjectWrap {
   static void Multiply(const Nan::FunctionCallbackInfo<v8::Value>& info);
   static void output(const Nan::FunctionCallbackInfo<v8::Value>& info);
   static void setFrameRate(const Nan::FunctionCallbackInfo<v8::Value>& info);
+  static void listFrameRates(const Nan::FunctionCallbackInfo<v8::Value>& info);
+  static void setLowScale(const Nan::FunctionCallbackInfo<v8::Value>& info);
+  static void setHighScale(const Nan::FunctionCallbackInfo<v8::Value>& info);
+  static void getLowScale(const Nan::FunctionCallbackInfo<v8::Value>& info);
+  static void useFahrenheit(const Nan::FunctionCallbackInfo<v8::Value>& info);
+  static void getImage(const Nan::FunctionCallbackInfo<v8::Value>& info);
+  static void getWidth(const Nan::FunctionCallbackInfo<v8::Value>& info);
+  static void getHeight(const Nan::FunctionCallbackInfo<v8::Value>& info);
+  static void recalibrate(const Nan::FunctionCallbackInfo<v8::Value>& info);
   static void setImageGain(const Nan::FunctionCallbackInfo<v8::Value>& info);
+  static void setScalingMethod(const Nan::FunctionCallbackInfo<v8::Value>& info);
   static void start(const Nan::FunctionCallbackInfo<v8::Value>& info);
   static void stop(const Nan::FunctionCallbackInfo<v8::Value>& info);
   static void save(const Nan::FunctionCallbackInfo<v8::Value>& info);

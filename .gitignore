@@ -6,6 +6,7 @@ sequences*/*
 celeb_seq*/*
 node_modules/*
 node_modules_old/*
+node_modules_old2/*
 app/src/vendor/*
 
 
