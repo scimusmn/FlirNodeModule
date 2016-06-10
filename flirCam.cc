@@ -10,6 +10,7 @@ using namespace std;
 
 Nan::Persistent<v8::Function> flirCam::constructor;
 
+
 flirCam::flirCam() {
   camera=NULL;
   width = 0;
@@ -51,6 +52,9 @@ void flirCam::Init(v8::Local<v8::Object> exports) {
   Nan::SetPrototypeMethod(tpl, "getImage", getImage);
   Nan::SetPrototypeMethod(tpl, "getWidth", getWidth);
   Nan::SetPrototypeMethod(tpl, "getHeight", getHeight);
+  Nan::SetPrototypeMethod(tpl, "rescale", rescale);
+  Nan::SetPrototypeMethod(tpl, "setScale", setScale);
+  Nan::SetPrototypeMethod(tpl, "recalibrate", recalibrate);
   Nan::SetPrototypeMethod(tpl, "start", start);
   Nan::SetPrototypeMethod(tpl, "stop", stop);
   Nan::SetPrototypeMethod(tpl, "save", save);
@@ -108,7 +112,7 @@ void flirCam::createControl()
         CRect rect = CRect(0, 0, 100, 100);
         BSTR sKey = SysAllocString(L"FLIR Systems AB :-) Cam Control. @$ ");
         camera = new CLVCam;
-        camera->CreateControl(camera->GetClsid(), NULL, WS_VISIBLE, rect, CWnd::FromHandle(mhWnd), 0/*ID*/, NULL, FALSE, sKey);
+        camera->CreateControl(camera->GetClsid(), NULL, WS_VISIBLE, rect, CWnd::FromHandle(mhWnd), CAM_CTRL/*ID*/, NULL, FALSE, sKey);
         ::SysFreeString(sKey);
     }
 }
@@ -170,34 +174,15 @@ void flirCam::setDefaults(){
 	// Pump messages and check console until the end
     // This must be done in the main thread and all call to
     // the control component must also be done from the main thread
+
     ShowWindow(mhWnd, SW_HIDE);
     UpdateWindow(mhWnd);
     createControl();
 
     ready = false;
-
-
-
-  /*HRESULT hr = CoInitializeEx(NULL,COINIT_MULTITHREADED);
-  //hr = camera.CreateInstance(CLSID_LVCam);
-  if(S_OK == hr) cout << "initialized thread\n";
-  hr = camera.CreateInstance(CLSID_LVCam);
-  if(S_OK == hr) cout << "Created instance of _DLVCam" << endl;
-
-  IClassFactory2 * fac;
-  CoGetClassObject(CLSID_LVCam,CLSCTX_ALL,NULL, IID_IClassFactory2, reinterpret_cast<void**>(&fac));
-  BSTR key = L"FLIR Systems AB :-) Cam Control. @$ ";
-  //fac->RequestLicKey(0,&key);
-  hr = fac->CreateInstanceLic(NULL, NULL, DIID__DLVCam, key, reinterpret_cast<void**>(&camera));
-     //reinterpret_cast<void**>(&camera));
-  //if(S_OK == hr) cout << "joined" << endl;
-
-  //cout  << "Version is " << camera->GetVersion() << endl;
-
-  //CoUninitialize();
-  //hr =  RequestLicKey(NULL,&key);
-
-  //cout << key << *key << endl;*/
+    lowVal = 30000;
+    highVal = 32000;
+    span = 2000;
 }
 
 void flirCam::New(const Nan::FunctionCallbackInfo<v8::Value>& info) {
@@ -244,12 +229,14 @@ void flirCam::begin(const Nan::FunctionCallbackInfo<v8::Value>& info){
     VARIANT va = obj->camera->GetCameraProperty(PROP_IMAGE_WIDTH);
     obj->width = (int)va.iVal;
     VariantClear(&va);
+
     va = obj->camera->GetCameraProperty(PROP_IMAGE_HEIGHT);
     obj->height = (int)va.iVal;
     VariantClear(&va);
 
     COleVariant prop = COleVariant((short)(2));
     obj->camera->SetCameraProperty(PROP_IMAGE_MODE, prop);
+
     //if(obj->status()) cout << "really connected\n";
 
     // va = obj->camera->GetCameraProperty(PROP_CAMERA_SN);
@@ -264,6 +251,62 @@ void flirCam::begin(const Nan::FunctionCallbackInfo<v8::Value>& info){
 
     obj->ready = true;
   }
+}
+
+void flirCam::recalibrate(const Nan::FunctionCallbackInfo<v8::Value>& info) {
+  flirCam* obj = ObjectWrap::Unwrap<flirCam>(info.Holder());
+  obj->camera->DoCameraAction(8);
+}
+
+void flirCam::rescale(const Nan::FunctionCallbackInfo<v8::Value>& info) {
+  flirCam* obj = ObjectWrap::Unwrap<flirCam>(info.Holder());
+  int low = info[0]->IsUndefined() ? 0 : info[0]->NumberValue();
+  int high = info[1]->IsUndefined() ? 0 : info[1]->NumberValue();
+  obj->getScaleFactors(low,high);
+}
+
+void flirCam::setScale(const Nan::FunctionCallbackInfo<v8::Value>& info) {
+  flirCam* obj = ObjectWrap::Unwrap<flirCam>(info.Holder());
+  obj->lowVal = (info[0]->IsUndefined() ? 0 : info[0]->NumberValue())*100;
+  obj->highVal = (info[1]->IsUndefined() ? 0 : info[1]->NumberValue())*100;
+  obj->span = obj->highVal-obj->lowVal;
+  //obj->getScaleFactors(low,high);
+}
+
+void flirCam::getScaleFactors(int lw, int hg) {
+  VARIANT va = camera->GetLUT(1);
+
+	if (va.vt != (VT_ARRAY | VT_R4))
+	{
+		VariantClear(&va);
+		cout << "Problem getting Look Up Table\n";
+	}
+
+	COleSafeArray sa;
+	sa.Attach(va);
+
+	DWORD lutSize = sa.GetOneDimSize() * sizeof(float);
+
+	// Allocate and copy LUT to local buffer
+	/*HANDLE m_hLUT = GlobalAlloc(GMEM_MOVEABLE | GMEM_DISCARDABLE, lutSize);
+	if (m_hLUT == NULL) {
+		VariantClear(&va);
+	    AfxMessageBox(_T("Unable to allocate LUT"));
+		return;
+	}*/
+
+	//BYTE* pLUT = (BYTE *)GlobalLock(m_hLUT);
+	WORD HUGEP *pSrc;
+	sa.AccessData((void HUGEP**)&pSrc);
+  //for(int i=0; i<20; i++){
+  float* pLUT = (float *)pSrc;
+  CString m_SpotVal;
+    m_SpotVal.Format(_T("%.1f K (%d)"), pLUT[20], 20);
+
+    cout << m_SpotVal << endl;
+  //}
+	sa.UnaccessData();
+	VariantClear(&va);
 }
 
 void flirCam::setScalingMethod(const Nan::FunctionCallbackInfo<v8::Value>& info) {
@@ -288,10 +331,6 @@ void flirCam::output(const Nan::FunctionCallbackInfo<v8::Value>& info) {
 }
 
 void flirCam::capture(const Nan::FunctionCallbackInfo<v8::Value>& info) {
-  flirCam* obj = ObjectWrap::Unwrap<flirCam>(info.Holder());
-}
-
-void flirCam::recalibrate(const Nan::FunctionCallbackInfo<v8::Value>& info) {
   flirCam* obj = ObjectWrap::Unwrap<flirCam>(info.Holder());
 }
 
@@ -420,7 +459,9 @@ void flirCam::getImage(const Nan::FunctionCallbackInfo<v8::Value>& info) {
   va = obj->camera->GetImage(20 + imageType);
   if (va.vt == VT_I2) { // Error
 		cout << "Problems: " << va.iVal << endl;
+    info.GetReturnValue().Set(NULL);
     VariantClear(&va);
+    return;
 	}
 	else if (va.vt != VT_I4) {
 		VariantClear(&va);
@@ -453,7 +494,9 @@ void flirCam::getImage(const Nan::FunctionCallbackInfo<v8::Value>& info) {
   sz=length;*/
   WORD span = smax-smin;
   while (sz--) {
-    long sample = ((*tSrc++ - 0) * 256 / 65535 );
+    long sample = ((*tSrc++ - obj->lowVal) * 256 / obj->span );
+    if(sample>255) sample = 255;
+    else if(sample<0) sample = 0;
 		*tOut++ = (BYTE)sample;
     *tOut++ = (BYTE)sample;
     *tOut++ = (BYTE)sample;
@@ -461,13 +504,13 @@ void flirCam::getImage(const Nan::FunctionCallbackInfo<v8::Value>& info) {
 	}
 
 	//memcpy(Buffer::Data(slowBuffer), pSrc, length);
-  Nan::MaybeLocal<Object> ret = Nan::NewBuffer((char*)pOut,(size_t)(length*4),FreeCallback,NULL);
-  //Nan::MaybeLocal<Object> ret =Nan::CopyBuffer((char*)pOut,(size_t)length);
+  //Nan::MaybeLocal<Object> ret = Nan::NewBuffer((char*)pOut,(size_t)(length*4),FreeCallback,NULL);
+  Nan::MaybeLocal<Object> ret =Nan::CopyBuffer((char*)pOut,(size_t)(length*4));
   info.GetReturnValue().Set(ret.ToLocalChecked());
 	GlobalUnlock(hMem);
-  //GlobalUnlock(out);
+  GlobalUnlock(out);
   GlobalFree(hMem);
-  //GlobalFree(out);
+  GlobalFree(out);
 	VariantClear(&va);
   //info.GetReturnValue().Set(Nan::New((int)1));
 }

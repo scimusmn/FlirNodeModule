@@ -1,0 +1,25 @@
+#display {
+  position: absolute;
+  top:calc(50vh - 37.5vw);
+  left: 0;
+  width:100vw;
+  height:75vw;
+}
+
+#legend {
+  position: absolute;
+  top:5vh;
+  right: 5vh;
+  width:5vw;
+  height:90vh;
+}
+
+body {
+  overflow: hidden;
+  font-size: 100px;
+  line-height: 100vh;
+  background-color: #000;
+  color:#fff;
+  text-align: center;
+  cursor: none;
+}

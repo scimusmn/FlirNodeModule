@@ -17,7 +17,7 @@ let mainWindow
 
 function createWindow () {
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 800, height: 600})//, fullscreen: true
+  mainWindow = new BrowserWindow({width: 800, height: 600, fullscreen: true})//, fullscreen: true
 
   mainWindow.setMenu(null);
   // and load the index.html of the app.
@@ -25,8 +25,6 @@ function createWindow () {
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools()
-
-  console.log('here');
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {

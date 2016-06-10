@@ -1,6 +1,8 @@
 #ifndef FLIRCAM_H
 #define FLIRCAM_H
 
+#define CAM_CTRL 1000
+
 #include "stdafx.h"
 #include "lvcam.h"
 
@@ -32,6 +34,7 @@ class flirCam : public Nan::ObjectWrap {
   void allocate();
   bool status();
   void open();
+  void getScaleFactors(int lw, int hg);
 
  private:
    //CComPtr<_DLVCam> camera;
@@ -41,7 +44,7 @@ class flirCam : public Nan::ObjectWrap {
    //_DLVCamPtr camera;
    UINT width,height,bufferSize,numStored;
    bool ready,bCapturing;
-   WORD lowVal, span;
+   WORD lowVal, highVal, span;
 
    Nan::Persistent<v8::Function> cb;
 
@@ -57,6 +60,7 @@ class flirCam : public Nan::ObjectWrap {
   static void output(const Nan::FunctionCallbackInfo<v8::Value>& info);
   static void setFrameRate(const Nan::FunctionCallbackInfo<v8::Value>& info);
   static void listFrameRates(const Nan::FunctionCallbackInfo<v8::Value>& info);
+  static void setScale(const Nan::FunctionCallbackInfo<v8::Value>& info);
   static void setLowScale(const Nan::FunctionCallbackInfo<v8::Value>& info);
   static void setHighScale(const Nan::FunctionCallbackInfo<v8::Value>& info);
   static void getLowScale(const Nan::FunctionCallbackInfo<v8::Value>& info);
@@ -65,6 +69,7 @@ class flirCam : public Nan::ObjectWrap {
   static void getWidth(const Nan::FunctionCallbackInfo<v8::Value>& info);
   static void getHeight(const Nan::FunctionCallbackInfo<v8::Value>& info);
   static void recalibrate(const Nan::FunctionCallbackInfo<v8::Value>& info);
+  static void rescale(const Nan::FunctionCallbackInfo<v8::Value>& info);
   static void setImageGain(const Nan::FunctionCallbackInfo<v8::Value>& info);
   static void setScalingMethod(const Nan::FunctionCallbackInfo<v8::Value>& info);
   static void start(const Nan::FunctionCallbackInfo<v8::Value>& info);
