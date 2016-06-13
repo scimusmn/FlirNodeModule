@@ -52,6 +52,7 @@ void flirCam::Init(v8::Local<v8::Object> exports) {
   Nan::SetPrototypeMethod(tpl, "getImage", getImage);
   Nan::SetPrototypeMethod(tpl, "getWidth", getWidth);
   Nan::SetPrototypeMethod(tpl, "getHeight", getHeight);
+  Nan::SetPrototypeMethod(tpl, "autoFocus", autoFocus);
   Nan::SetPrototypeMethod(tpl, "rescale", rescale);
   Nan::SetPrototypeMethod(tpl, "setScale", setScale);
   Nan::SetPrototypeMethod(tpl, "recalibrate", recalibrate);
@@ -325,6 +326,17 @@ void flirCam::setScalingMethod(const Nan::FunctionCallbackInfo<v8::Value>& info)
   //info.GetReturnValue().Set(Nan::New("Test").ToLocalChecked());
 }
 
+void flirCam::doAutoFocus(){
+  if(status()){
+    camera->DoCameraAction(CAM_ACTION_AUTO_FOCUS);
+  }
+}
+
+void flirCam::autoFocus(const Nan::FunctionCallbackInfo<v8::Value>& info) {
+  flirCam* obj = ObjectWrap::Unwrap<flirCam>(info.Holder());
+  obj->doAutoFocus();
+}
+
 void flirCam::output(const Nan::FunctionCallbackInfo<v8::Value>& info) {
   flirCam* obj = ObjectWrap::Unwrap<flirCam>(info.Holder());
   info.GetReturnValue().Set(Nan::New("Test").ToLocalChecked());
@@ -459,7 +471,7 @@ void flirCam::getImage(const Nan::FunctionCallbackInfo<v8::Value>& info) {
   va = obj->camera->GetImage(20 + imageType);
   if (va.vt == VT_I2) { // Error
 		cout << "Problems: " << va.iVal << endl;
-    info.GetReturnValue().Set(NULL);
+    info.GetReturnValue().Set(Nan::Null());
     VariantClear(&va);
     return;
 	}
@@ -503,7 +515,6 @@ void flirCam::getImage(const Nan::FunctionCallbackInfo<v8::Value>& info) {
     *tOut++ = 255;
 	}
 
-	//memcpy(Buffer::Data(slowBuffer), pSrc, length);
   //Nan::MaybeLocal<Object> ret = Nan::NewBuffer((char*)pOut,(size_t)(length*4),FreeCallback,NULL);
   Nan::MaybeLocal<Object> ret =Nan::CopyBuffer((char*)pOut,(size_t)(length*4));
   info.GetReturnValue().Set(ret.ToLocalChecked());

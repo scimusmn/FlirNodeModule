@@ -35,6 +35,7 @@ class flirCam : public Nan::ObjectWrap {
   bool status();
   void open();
   void getScaleFactors(int lw, int hg);
+  void doAutoFocus();
 
  private:
    //CComPtr<_DLVCam> camera;
@@ -68,6 +69,7 @@ class flirCam : public Nan::ObjectWrap {
   static void getImage(const Nan::FunctionCallbackInfo<v8::Value>& info);
   static void getWidth(const Nan::FunctionCallbackInfo<v8::Value>& info);
   static void getHeight(const Nan::FunctionCallbackInfo<v8::Value>& info);
+  static void autoFocus(const Nan::FunctionCallbackInfo<v8::Value>& info);
   static void recalibrate(const Nan::FunctionCallbackInfo<v8::Value>& info);
   static void rescale(const Nan::FunctionCallbackInfo<v8::Value>& info);
   static void setImageGain(const Nan::FunctionCallbackInfo<v8::Value>& info);

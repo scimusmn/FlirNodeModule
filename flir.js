@@ -4,14 +4,21 @@ var leg = document.getElementById('legend');
 var cntx = leg.getContext('2d');
 cntx.rect(0, 0, leg.width, leg.height);
 
+window.palette = (i) => {
+  var r = Math.round(Math.pow(i/255,2)*255);
+  var g = (i<128)?i:256-i;
+  var b = Math.round((255-i)/2);
+  return {r: r, g: g, b: b};
+}
+
 // add linear gradient
 var grd = cntx.createLinearGradient(0, 0, 0, leg.height);
-// light blue
-grd.addColorStop(1, 'rgba(0,0,0,1)');
-grd.addColorStop(7/8, 'rgba(128,32,128,1)');
-grd.addColorStop(1/2, 'rgba(255,64,0,1)');
-grd.addColorStop(1/4, 'rgba(255,192,0,1)');
-grd.addColorStop(0, 'rgba(255,255,255,1)');
+for(var i=0; i< 256; i++){
+  var p = palette(i);
+  grd.addColorStop((255-i)/255, 'rgba('+p.r+','+p.g+','+p.b+',1)');
+}
+
+
 cntx.fillStyle = grd;
 cntx.fill();
 
@@ -20,12 +27,13 @@ setTimeout(()=>{
   //var cfg = require('./config.js').config;
   window.cam = new flir.camera(10);
 
-  cam.begin("169.254.140.32");
+  cam.begin("169.254.201.34");
   console.log('began');
+  cam.autoFocus();
 
   //cam.listFrameRates();
   //cam.useFahrenheit();
-  cam.setFrameRate(30);
+  //cam.setFrameRate(30);
 
   //cam.setScalingMethod(1);
   //cam.setLowScale(300);
@@ -52,10 +60,10 @@ setTimeout(()=>{
     if(t.length>10000){
       var im = ctx.createImageData(w,h);
       for(var i=0; i< t.length; i+=4){
-        var b = t[i+2];
-        t[i+2] = (b <= 64) ? b * 2 : ((b > 64 && b < 128) ? -2 * b + 256 : ((b > 192) ? (b - 192) * 4 : 0));
-        var r = t[i];
-        t[i] = (r * 2 >= 255) ? 255 : r * 2;
+        var p = palette(t[i]);
+        t[i] = p.r;
+        t[i+1] = p.g;
+        t[i+2] = p.b;
       }
       im.data.set(t);
       ctx.putImageData(im,0,0);
