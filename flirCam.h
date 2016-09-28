@@ -53,12 +53,7 @@ class flirCam : public Nan::ObjectWrap {
   ~flirCam();
 
   static void begin(const Nan::FunctionCallbackInfo<v8::Value>& info);
-  static void allocateBuffer(const Nan::FunctionCallbackInfo<v8::Value>& info);
   static void New(const Nan::FunctionCallbackInfo<v8::Value>& info);
-  static void GetValue(const Nan::FunctionCallbackInfo<v8::Value>& info);
-  static void PlusOne(const Nan::FunctionCallbackInfo<v8::Value>& info);
-  static void Multiply(const Nan::FunctionCallbackInfo<v8::Value>& info);
-  static void output(const Nan::FunctionCallbackInfo<v8::Value>& info);
   static void setFrameRate(const Nan::FunctionCallbackInfo<v8::Value>& info);
   static void listFrameRates(const Nan::FunctionCallbackInfo<v8::Value>& info);
   static void setScale(const Nan::FunctionCallbackInfo<v8::Value>& info);
@@ -71,15 +66,7 @@ class flirCam : public Nan::ObjectWrap {
   static void getHeight(const Nan::FunctionCallbackInfo<v8::Value>& info);
   static void autoFocus(const Nan::FunctionCallbackInfo<v8::Value>& info);
   static void recalibrate(const Nan::FunctionCallbackInfo<v8::Value>& info);
-  static void rescale(const Nan::FunctionCallbackInfo<v8::Value>& info);
-  static void setImageGain(const Nan::FunctionCallbackInfo<v8::Value>& info);
-  static void setScalingMethod(const Nan::FunctionCallbackInfo<v8::Value>& info);
-  static void start(const Nan::FunctionCallbackInfo<v8::Value>& info);
-  static void stop(const Nan::FunctionCallbackInfo<v8::Value>& info);
-  static void save(const Nan::FunctionCallbackInfo<v8::Value>& info);
-  static void capture(const Nan::FunctionCallbackInfo<v8::Value>& info);
-  static void isCapturing(const Nan::FunctionCallbackInfo<v8::Value>& info);
-  static void stopCapture(const Nan::FunctionCallbackInfo<v8::Value>& info);
+  static void checkImage(const Nan::FunctionCallbackInfo<v8::Value>& info);
 
   static Nan::Persistent<v8::Function> constructor;
   double value_;

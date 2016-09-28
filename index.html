@@ -6,9 +6,14 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div>Camera is loading, please wait</div>
+    <div id="wait">Camera is loading, please wait</div>
     <canvas id="display"></canvas>
-    <canvas id="legend"></canvas>
+    <div id='bottomMask'>
+      <canvas id="legend"></canvas>
+      <div id="warm">Hot</div>
+      <div id="cool">Cool</div>
+    </div>
+
   </body>
 
   <script>

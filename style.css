@@ -1,3 +1,13 @@
+@font-face {
+  font-family: nova;
+  src: url(app/assets/fonts/nova.otf);
+}
+
+body {
+  cursor: none;
+  font-family: nova;
+}
+
 #display {
   position: absolute;
   top:calc(50vh - 37.5vw);
@@ -7,11 +17,52 @@
 }
 
 #legend {
+  position: fixed;
+  bottom:5vh;
+  right: 25vw;
+  height:5vh;
+  width:50vw;
+  border: .25vh solid #ccc;
+  border-radius: .25vh;
+}
+
+#wait {
   position: absolute;
-  top:5vh;
-  right: 5vh;
-  width:5vw;
-  height:90vh;
+  top: 0;
+  left: 0;
+  width: 90vw;
+  height: 100vh;
+}
+
+#cool {
+  position: fixed;
+  top: 90vh;
+  left:0;
+  width:25vw;
+  text-align: center;
+  font-size: 50px;
+  line-height: 5vh;
+}
+
+#warm {
+  position: fixed;
+  top: 90vh;
+  right:0;
+  width:25vw;
+  text-align: center;
+  font-size: 50px;
+  line-height: 5vh;
+}
+
+#bottomMask {
+  position: absolute;
+  top: 85vh;
+  left:0;
+  width:100vw;
+  height: 15vh;
+  background-color: #222;
+  color: #ddd;
+  border-top: .5vh solid #333;
 }
 
 body {
