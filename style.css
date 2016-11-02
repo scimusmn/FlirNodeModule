@@ -18,7 +18,7 @@ body {
 
 #legend {
   position: fixed;
-  bottom:5vh;
+  bottom:12vh;
   right: 25vw;
   height:5vh;
   width:50vw;
@@ -36,7 +36,7 @@ body {
 
 #cool {
   position: fixed;
-  top: 90vh;
+  top: 80vh;
   left:0;
   width:25vw;
   text-align: center;
@@ -44,9 +44,20 @@ body {
   line-height: 5vh;
 }
 
+#fresco {
+  position: fixed;
+  top: 85vh;
+  left:0;
+  width:25vw;
+  text-align: center;
+  font-size: 50px;
+  font-style: italic;
+  line-height: 5vh;
+}
+
 #warm {
   position: fixed;
-  top: 90vh;
+  top: 80vh;
   right:0;
   width:25vw;
   text-align: center;
@@ -54,15 +65,37 @@ body {
   line-height: 5vh;
 }
 
+#cal {
+  position: fixed;
+  top: 85vh;
+  right:0;
+  width:25vw;
+  text-align: center;
+  font-size: 50px;
+  font-style: italic;
+  line-height: 5vh;
+}
+
 #bottomMask {
   position: absolute;
-  top: 85vh;
+  bottom: 0;
   left:0;
   width:100vw;
-  height: 15vh;
+  height: 25vh;
   background-color: #222;
   color: #ddd;
   border-top: .5vh solid #333;
+}
+
+#topMask {
+  position: absolute;
+  top: 0;
+  left:0;
+  width:100vw;
+  height: 17vh;
+  background-color: #222;
+  color: #ddd;
+  border-bottom: .5vh solid #333;
 }
 
 body {
