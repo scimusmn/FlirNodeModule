@@ -45,6 +45,7 @@ class flirCam : public Nan::ObjectWrap {
    //_DLVCamPtr camera;
    UINT width,height,bufferSize,numStored;
    bool ready,bCapturing;
+   UINT minTemp, maxTemp;
    WORD lowVal, highVal, span;
 
    Nan::Persistent<v8::Function> cb;
@@ -63,6 +64,8 @@ class flirCam : public Nan::ObjectWrap {
   static void useFahrenheit(const Nan::FunctionCallbackInfo<v8::Value>& info);
   static void getImage(const Nan::FunctionCallbackInfo<v8::Value>& info);
   static void getWidth(const Nan::FunctionCallbackInfo<v8::Value>& info);
+  static void getMinTemp(const Nan::FunctionCallbackInfo<v8::Value>& info);
+  static void getMaxTemp(const Nan::FunctionCallbackInfo<v8::Value>& info);
   static void getHeight(const Nan::FunctionCallbackInfo<v8::Value>& info);
   static void autoFocus(const Nan::FunctionCallbackInfo<v8::Value>& info);
   static void recalibrate(const Nan::FunctionCallbackInfo<v8::Value>& info);

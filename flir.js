@@ -34,8 +34,22 @@ setTimeout(()=>{
   //cam.listFrameRates();
   //cam.useFahrenheit();
   //cam.setFrameRate(30);
-
   cam.setScale(300,312);
+
+  function autoScale() {
+    var min = cam.getMinTemp()/100;
+    var max = cam.getMaxTemp()/100;
+    var span = max-min;
+    cam.setScale(min+.25*span,max-.25*span);
+  }
+
+  setTimeout(autoScale,1000);
+  setInterval(()=>{
+    autoScale();
+    cam.autoFocus();
+  },60000);
+
+
 
   var can = document.querySelector('#display');
   var ctx = can.getContext('2d');

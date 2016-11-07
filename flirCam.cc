@@ -43,6 +43,8 @@ void flirCam::Init(v8::Local<v8::Object> exports) {
   Nan::SetPrototypeMethod(tpl, "getImage", getImage);
   Nan::SetPrototypeMethod(tpl, "getWidth", getWidth);
   Nan::SetPrototypeMethod(tpl, "getHeight", getHeight);
+  Nan::SetPrototypeMethod(tpl, "getMinTemp", getMinTemp);
+  Nan::SetPrototypeMethod(tpl, "getMaxTemp", getMaxTemp);
   Nan::SetPrototypeMethod(tpl, "autoFocus", autoFocus);
   Nan::SetPrototypeMethod(tpl, "setScale", setScale);
   Nan::SetPrototypeMethod(tpl, "recalibrate", recalibrate);
@@ -162,6 +164,8 @@ void flirCam::setDefaults(){
     lowVal = 30000;
     highVal = 32000;
     span = 2000;
+    minTemp = 65000;
+    maxTemp = 0;
 }
 
 void flirCam::New(const Nan::FunctionCallbackInfo<v8::Value>& info) {
@@ -407,6 +411,8 @@ void flirCam::getImage(const Nan::FunctionCallbackInfo<v8::Value>& info) {
   sz=length;*/
   WORD span = smax-smin;
   while (sz--) {
+    smin = __min(*tSrc, smin);
+		smax = __max(*tSrc, smax);
     long sample = ((*tSrc++ - obj->lowVal) * 256 / obj->span );
     if(sample>255) sample = 255;
     else if(sample<0) sample = 0;
@@ -415,6 +421,9 @@ void flirCam::getImage(const Nan::FunctionCallbackInfo<v8::Value>& info) {
     *tOut++ = (BYTE)sample;
     *tOut++ = 255;
 	}
+
+  obj->minTemp = smin;
+  obj->maxTemp = smax;
 
   //Nan::MaybeLocal<Object> ret = Nan::NewBuffer((char*)pOut,(size_t)(length*4),FreeCallback,NULL);
   Nan::MaybeLocal<Object> ret =Nan::CopyBuffer((char*)pOut,(size_t)(length*4));
@@ -442,4 +451,14 @@ void flirCam::getWidth(const Nan::FunctionCallbackInfo<v8::Value>& info) {
 void flirCam::getHeight(const Nan::FunctionCallbackInfo<v8::Value>& info) {
   flirCam* obj = ObjectWrap::Unwrap<flirCam>(info.Holder());
   info.GetReturnValue().Set(Nan::New((int)obj->height));
+}
+
+void flirCam::getMinTemp(const Nan::FunctionCallbackInfo<v8::Value>& info) {
+  flirCam* obj = ObjectWrap::Unwrap<flirCam>(info.Holder());
+  info.GetReturnValue().Set(Nan::New((int)obj->minTemp));
+}
+
+void flirCam::getMaxTemp(const Nan::FunctionCallbackInfo<v8::Value>& info) {
+  flirCam* obj = ObjectWrap::Unwrap<flirCam>(info.Holder());
+  info.GetReturnValue().Set(Nan::New((int)obj->maxTemp));
 }
